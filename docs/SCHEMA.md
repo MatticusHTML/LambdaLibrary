@@ -20,6 +20,8 @@ for the index card, and renders everything after the json block as the doc.
   "category": "Broad bucket, e.g. Web Development",
   "tags": ["lowercase", "kebab-tags"],
   "summary": "One or two sentences for the index card.",
+  "library": "Required when the entry covers a library or package. Primary URL: npm page, docs site, or repo homepage.",
+  "header": "Optional. Path to a hero image, e.g. assets/entries/slug-header.png",
   "sources": ["MDN Web Docs", "https://example.com/page", "Cameron, in person"],
   "added": "2026-06-15 09:12 PT",
   "updated": "2026-06-15 09:12 PT",
@@ -33,6 +35,9 @@ Rules:
 - `added` is set once. `updated` moves to now in PT on every edit.
 - All timestamps are Pacific Time, format `YYYY-MM-DD HH:MM PT`.
 - `verdict` is required. It is the only place Lambda's voice appears in the entry.
+- `library` is required on any entry that discusses a library, package, or framework.
+  Use the primary home URL (docs site, npm page, or official repo). The engine
+  renders it as a prominent link in the reader.
 - No em dashes in any field.
 
 ### Body
@@ -57,6 +62,38 @@ Notes:
   for markup and styling, not JavaScript behavior.
 - A preview block cannot contain triple backticks.
 - Include at least one preview in any entry that teaches markup or styling.
+
+### Live demo blocks
+
+A fenced block with the info word `demo` becomes a live window like preview, but
+the iframe allows JavaScript. Use this for npm libraries, charts, and anything
+that must run code. The text after `demo` on the same line is the window label.
+
+    ```demo Minimal example
+    <script type="module">
+    import { Thing } from "https://esm.sh/package@1.0.0";
+    // mount and run
+    </script>
+    ```
+
+Notes:
+- Pin CDN versions (e.g. `package@1.0.0`) so the entry stays stable.
+- Partial HTML is wrapped in a document shell automatically. Full documents
+  starting with `<!DOCTYPE` or `<html` pass through unchanged.
+- Sandbox allows scripts and same-origin only. Not a GitHub Pages limitation:
+  both preview and demo work on any static host; the block type sets behavior.
+- A demo block cannot contain triple backticks.
+
+### Teaching aids (optional HTML in the body)
+
+Library and graph entries often include:
+
+- `<div class="lambda-tip">` callouts for Lambda teacher notes (label in
+  `.lambda-tip-label`, body in plain paragraphs).
+- `<details class="entry-fold">` with `<summary>` for collapsible sections.
+  Standard pattern: one fold titled "Prompt an AI", one titled "Build it yourself".
+
+These are raw HTML inside the markdown body. The engine passes them through marked.
 
 ---
 

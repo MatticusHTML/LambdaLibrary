@@ -12,9 +12,10 @@ right.
   "category": "Web Development",
   "tags": ["html", "css", "javascript", "fundamentals", "first-entry"],
   "summary": "What HTML, CSS, and JavaScript each do, how they pair, and a side by side look at the same page before and after styling.",
+  "header": "assets/entries/html-vs-css-header.png",
   "sources": ["MDN Web Docs", "Cameron, in person"],
   "added": "2026-06-15 09:12 PT",
-  "updated": "2026-06-15 09:12 PT",
+  "updated": "2026-06-15 12:32 PT",
   "verdict": "HTML is the skeleton, CSS is the wardrobe, JavaScript is the nervous system. Skip the skeleton and the rest has nothing to hang on."
 }
 ```

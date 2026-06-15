@@ -14,23 +14,27 @@ This file is for the agent and the operator. The website does not read it.
 
 ## Snapshot
 
-- Entries on file: 1
-- Last filed: 2026-06-15 09:12 PT (html-vs-css)
+- Entries on file: 2
+- Last filed: 2026-06-15 12:43 PT (psychart)
 - Last audit: not yet run
 
 ## Categories in use
 
 | Category | Count |
 |----------------|-------|
+| Graphs | 1 |
 | Web Development | 1 |
 
 When a new entry's category is not on this list, Lambda flags it before filing
 and asks whether to open a new category or fold it into an existing one. This
 keeps the index from sprouting forty near-duplicate categories.
 
+Likely future buckets the operator has named: **Structure**, **Photos**. Do not
+pre-create empty categories. They appear when the first entry lands in one.
+
 ## Tag vocabulary
 
-`html`, `css`, `javascript`, `fundamentals`, `first-entry`
+`html`, `css`, `javascript`, `fundamentals`, `first-entry`, `psychart`, `pumpchart`, `psychrometric`, `graphs`, `npm`, `hvac`, `engineering`
 
 Lambda prefers reusing an existing tag over coining a near-synonym. New tags are
 fine when the concept is genuinely new. She does not coin a tag she will use once.
@@ -57,3 +61,15 @@ relitigated every session.
 - 2026-06-15: Session loop added. On goodnight, write a session to `data/log.md`
   and sync its next items into open threads above. On good morning, read the log
   first so the session resumes with context.
+- 2026-06-15: Categories grow organically. Operator named Graphs, Structure,
+  Photos as obvious future buckets. Flag new ones, never pre-create empty
+  categories.
+- 2026-06-15: Two live block types. `preview` for HTML/CSS (scripts sandboxed
+  off). `demo` for JavaScript libraries and charts (scripts on, CDN imports ok).
+  GitHub Pages hosts both the same; the block type is the difference.
+- 2026-06-15: Library entries always carry a `library` URL in meta. Required.
+  Engine shows it as a prominent reader link. Operator rule: never file a library
+  entry without one.
+- 2026-06-15: Library and graph entries include Lambda tip callouts, collapsible
+  folds for "Prompt an AI" vs "Build it yourself", and live `demo` blocks that
+  use the library itself. Pin CDN versions for stability.

@@ -103,18 +103,29 @@ LAMBDA // INDEX
 
 1. Confirm the topic and which category it belongs to. Read `data/library-state.md`
    first so you already know the existing categories and tags. If the category
-   is new, flag it and ask before creating it.
+   is new, flag it and ask before creating it. Categories grow organically
+   (Graphs, Structure, Photos, Web Development, etc.). Never pre-create an empty
+   category.
 2. Gather the material. If you cannot verify something, ask the operator for it.
    Never fill gaps with guesses.
 3. Write `data/entries/<slug>.md` to the schema in `docs/SCHEMA.md`: one json meta
    block, then the body. Body teaches in plain, clear prose. Your voice goes in
    the verdict line, not the body.
-4. Any markup or code lesson gets at least one live `preview` block.
-5. Prepend the slug to the `entries` array in `data/manifest.md`.
-6. Update `data/library-state.md`: bump the count, update last filed, update
+4. Live blocks by content type:
+   - Markup and styling lessons: at least one `preview` block (HTML/CSS, scripts off).
+   - JavaScript libraries, charts, interactive samples: at least one `demo` block
+     (scripts on, pin CDN versions). Use the library itself when possible.
+5. For libraries and graph tools, also include:
+   - A `library` field in meta pointing to the primary library URL. Required.
+     The engine renders it as a prominent link in the reader.
+   - Lambda tip callouts (`lambda-tip` divs) with practical teacher notes.
+   - Collapsible folds (`entry-fold` details): "Prompt an AI" and "Build it yourself".
+   - A short note when a demo block was required and why (preview vs demo).
+6. Prepend the slug to the `entries` array in `data/manifest.md`.
+7. Update `data/library-state.md`: bump the count, update last filed, update
    category counts and tag vocabulary, remove the topic from open threads if it
    was there, and log any convention you decided.
-7. Report what you filed in one or two lines. Remind the operator to publish in
+8. Report what you filed in one or two lines. Remind the operator to publish in
    GitHub Desktop. You do not run git.
 
 ## The menu that learns

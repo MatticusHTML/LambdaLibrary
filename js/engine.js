@@ -202,8 +202,10 @@ function showReader(e){
   const view = $("#reader-view");
   view.innerHTML =
     "<button class='reader-back'>&larr; Back to index</button>" +
+    (e.header ? "<div class='reader-hero'><img src='" + esc(e.header) + "' alt='' /></div>" : "") +
     "<div class='reader-meta'><span class='cat'>" + esc(e.category) + "</span> &middot; filed " + esc(e.added || "") + (e.updated && e.updated !== e.added ? " &middot; updated " + esc(e.updated) : "") + "</div>" +
     "<h1 class='reader-title'>" + esc(e.title) + "</h1>" +
+    (e.library ? "<a class='reader-library' href='" + esc(e.library) + "' target='_blank' rel='noopener'>Library <span class='lib-url'>" + esc(libraryLabel(e.library)) + "</span></a>" : "") +
     (e.tags.length ? "<div class='reader-tags'>" + e.tags.map((t) => "<span class='tag'>" + esc(t) + "</span>").join("") + "</div>" : "") +
     "<div class='doc'>" + renderBody(e.body) + "</div>" +
     "<div class='reader-foot'>" +
@@ -214,10 +216,16 @@ function showReader(e){
   window.scrollTo(0, 0);
 }
 
-/* ---------- markdown + live previews ---------- */
+/* ---------- markdown + live previews + demos ---------- */
 function renderBody(md){
   const previews = [];
-  const stripped = md.replace(/```preview([^\n]*)\n([\s\S]*?)```/g, (_, title, code) => {
+  const demos = [];
+  let stripped = md.replace(/```demo([^\n]*)\n([\s\S]*?)```/g, (_, title, code) => {
+    const idx = demos.length;
+    demos.push({ title: title.trim() || "Demo", code: code.replace(/\s+$/, "") });
+    return "\n\n@@DEMO" + idx + "@@\n\n";
+  });
+  stripped = stripped.replace(/```preview([^\n]*)\n([\s\S]*?)```/g, (_, title, code) => {
     const idx = previews.length;
     previews.push({ title: title.trim() || "Preview", code: code.replace(/\s+$/, "") });
     return "\n\n@@PREVIEW" + idx + "@@\n\n";
@@ -226,6 +234,10 @@ function renderBody(md){
   previews.forEach((p, i) => {
     const token = "@@PREVIEW" + i + "@@";
     html = html.replace("<p>" + token + "</p>", previewHtml(p)).replace(token, previewHtml(p));
+  });
+  demos.forEach((d, i) => {
+    const token = "@@DEMO" + i + "@@";
+    html = html.replace("<p>" + token + "</p>", demoHtml(d)).replace(token, demoHtml(d));
   });
   return html;
 }
@@ -237,7 +249,24 @@ function previewHtml(p){
       "<pre class='preview-code'><code>" + esc(p.code) + "</code></pre>" +
       "<div class='preview-render'><iframe sandbox srcdoc=\"" + attr(p.code) + "\" title=\"" + esc(p.title) + " live preview\"></iframe></div>" +
     "</div>" +
-    "<div class='preview-label'>Live result. This is the code above, actually rendering.</div>" +
+    "<div class='preview-label'>Live result. HTML and CSS only. Scripts are sandboxed off.</div>" +
+  "</div>";
+}
+
+function demoSrcdoc(code){
+  const trimmed = code.trim();
+  if(/^<!DOCTYPE/i.test(trimmed) || /^<html/i.test(trimmed)) return trimmed;
+  return "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><style>html,body{margin:0;padding:0;background:#fff;overflow:hidden}</style></head><body>" + trimmed + "</body></html>";
+}
+
+function demoHtml(d){
+  return "<div class='demo'>" +
+    "<div class='demo-head'><span class='dot'></span>" + esc(d.title) + "</div>" +
+    "<div class='demo-body'>" +
+      "<pre class='demo-code'><code>" + esc(d.code) + "</code></pre>" +
+      "<div class='demo-render'><iframe sandbox=\"allow-scripts allow-same-origin\" srcdoc=\"" + attr(demoSrcdoc(d.code)) + "\" title=\"" + esc(d.title) + " live demo\"></iframe></div>" +
+    "</div>" +
+    "<div class='demo-label'>Live demo. JavaScript enabled for library charts and interactive samples.</div>" +
   "</div>";
 }
 
@@ -248,6 +277,14 @@ function dateOnly(s){ return s ? String(s).split(" ")[0] : ""; }
 function linkify(s){
   const m = String(s).match(/^(https?:\/\/\S+)$/);
   return m ? "<a href='" + esc(m[1]) + "' target='_blank' rel='noopener'>" + esc(m[1]) + "</a>" : esc(s);
+}
+function libraryLabel(url){
+  try{
+    const u = new URL(url);
+    return u.hostname + u.pathname.replace(/\/$/, "");
+  }catch(_){
+    return url;
+  }
 }
 
 if(document.readyState === "loading"){

@@ -65,10 +65,9 @@ Before sending a line, run the test:
 
 ### Mode 1 — File new entry
 See AGENTS.md for the step list. Key points: read library state first, confirm
-category, never guess, write to schema, include a live `preview` for any code or
-markup lesson, prepend to manifest, update library state, end with a verdict and
-a GitHub Desktop reminder.
-
+category, never guess, write to schema, include live blocks (`preview` for
+HTML/CSS, `demo` for JS libraries), prepend to manifest, update library state,
+end with a verdict and a GitHub Desktop reminder.
 ### Mode 2 — Edit entry
 Load the entry. Show the proposed change. Wait for `CONFIRM`. Preserve the slug
 and `added` timestamp. Update `updated` to now in PT. Keep history additive: do
