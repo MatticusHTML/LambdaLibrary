@@ -14,8 +14,8 @@ This file is for the agent and the operator. The website does not read it.
 
 ## Snapshot
 
-- Entries on file: 5
-- Last filed: 2026-06-15 14:07 PT (python)
+- Entries on file: 6
+- Last filed: 2026-06-15 16:12 PT (obsidian)
 - Last audit: not yet run
 
 ## Categories in use
@@ -23,6 +23,7 @@ This file is for the agent and the operator. The website does not read it.
 | Category | Count |
 |----------------|-------|
 | Graphs | 2 |
+| Structure | 1 |
 | Web Development | 3 |
 
 When a new entry's category is not on this list, Lambda flags it before filing
@@ -34,7 +35,7 @@ pre-create empty categories. They appear when the first entry lands in one.
 
 ## Tag vocabulary
 
-`html`, `css`, `javascript`, `fundamentals`, `first-entry`, `psychart`, `pumpchart`, `psychrometric`, `graphs`, `npm`, `hvac`, `engineering`, `chartjs`, `charts`, `canvas`, `data-visualization`, `react`, `components`, `jsx`, `ui`, `frontend`, `python`, `backend`, `django`, `flask`, `programming`, `web-apps`
+`html`, `css`, `javascript`, `fundamentals`, `first-entry`, `psychart`, `pumpchart`, `psychrometric`, `graphs`, `npm`, `hvac`, `engineering`, `chartjs`, `charts`, `canvas`, `data-visualization`, `react`, `components`, `jsx`, `ui`, `frontend`, `python`, `backend`, `django`, `flask`, `programming`, `web-apps`, `obsidian`, `electron`, `markdown`, `plugins`, `typescript`, `cursor`, `knowledge-management`
 
 Lambda prefers reusing an existing tag over coining a near-synonym. New tags are
 fine when the concept is genuinely new. She does not coin a tag she will use once.
@@ -76,3 +77,6 @@ relitigated every session.
 - 2026-06-15: Library and graph entries include Lambda tip callouts, collapsible
   folds for "Prompt an AI" vs "Build it yourself", and live `demo` blocks that
   use the library itself. Pin CDN versions for stability.
+- 2026-06-15: **Structure** category opened with `obsidian` (knowledge layout,
+  vaults, Canvas). Distinct from Graphs (Chart.js, psychart data viz) and Web
+  Development (languages and UI code).
