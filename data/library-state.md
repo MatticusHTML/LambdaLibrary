@@ -14,15 +14,15 @@ This file is for the agent and the operator. The website does not read it.
 
 ## Snapshot
 
-- Entries on file: 2
-- Last filed: 2026-06-15 12:43 PT (psychart)
+- Entries on file: 3
+- Last filed: 2026-06-15 12:59 PT (chartjs)
 - Last audit: not yet run
 
 ## Categories in use
 
 | Category | Count |
 |----------------|-------|
-| Graphs | 1 |
+| Graphs | 2 |
 | Web Development | 1 |
 
 When a new entry's category is not on this list, Lambda flags it before filing
@@ -34,7 +34,7 @@ pre-create empty categories. They appear when the first entry lands in one.
 
 ## Tag vocabulary
 
-`html`, `css`, `javascript`, `fundamentals`, `first-entry`, `psychart`, `pumpchart`, `psychrometric`, `graphs`, `npm`, `hvac`, `engineering`
+`html`, `css`, `javascript`, `fundamentals`, `first-entry`, `psychart`, `pumpchart`, `psychrometric`, `graphs`, `npm`, `hvac`, `engineering`, `chartjs`, `charts`, `canvas`, `data-visualization`
 
 Lambda prefers reusing an existing tag over coining a near-synonym. New tags are
 fine when the concept is genuinely new. She does not coin a tag she will use once.
