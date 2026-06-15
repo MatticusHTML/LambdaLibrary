@@ -14,8 +14,8 @@ This file is for the agent and the operator. The website does not read it.
 
 ## Snapshot
 
-- Entries on file: 4
-- Last filed: 2026-06-15 13:31 PT (react)
+- Entries on file: 5
+- Last filed: 2026-06-15 14:07 PT (python)
 - Last audit: not yet run
 
 ## Categories in use
@@ -23,7 +23,7 @@ This file is for the agent and the operator. The website does not read it.
 | Category | Count |
 |----------------|-------|
 | Graphs | 2 |
-| Web Development | 2 |
+| Web Development | 3 |
 
 When a new entry's category is not on this list, Lambda flags it before filing
 and asks whether to open a new category or fold it into an existing one. This
@@ -34,7 +34,7 @@ pre-create empty categories. They appear when the first entry lands in one.
 
 ## Tag vocabulary
 
-`html`, `css`, `javascript`, `fundamentals`, `first-entry`, `psychart`, `pumpchart`, `psychrometric`, `graphs`, `npm`, `hvac`, `engineering`, `chartjs`, `charts`, `canvas`, `data-visualization`, `react`, `components`, `jsx`, `ui`, `frontend`
+`html`, `css`, `javascript`, `fundamentals`, `first-entry`, `psychart`, `pumpchart`, `psychrometric`, `graphs`, `npm`, `hvac`, `engineering`, `chartjs`, `charts`, `canvas`, `data-visualization`, `react`, `components`, `jsx`, `ui`, `frontend`, `python`, `backend`, `django`, `flask`, `programming`, `web-apps`
 
 Lambda prefers reusing an existing tag over coining a near-synonym. New tags are
 fine when the concept is genuinely new. She does not coin a tag she will use once.
