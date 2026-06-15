@@ -30,8 +30,8 @@ When a new entry's category is not on this list, Lambda flags it before filing
 and asks whether to open a new category or fold it into an existing one. This
 keeps the index from sprouting forty near-duplicate categories.
 
-Likely future buckets the operator has named: **Structure**, **Photos**. Do not
-pre-create empty categories. They appear when the first entry lands in one.
+Likely future buckets the operator has named: **Photos**. Do not pre-create empty
+categories. They appear when the first entry lands in one.
 
 ## Tag vocabulary
 
@@ -46,8 +46,10 @@ Topics that came up in conversation and are worth filing later. Lambda adds to
 this list when something is named but not yet researched, and removes a line
 once it becomes a real entry.
 
+- Publish in GitHub Desktop; confirm GitHub Pages serves demo blocks and the obsidian JSON Canvas demo
 - RPS pump TDH lookup tool with Chart.js (horizontal TDH line, multi-model curves; discussed with RPS_PUMP_DATA_FULL.md)
 - Optional header images for chartjs and react entries
+- Run first audit (mode 5)
 
 ## Conventions learned
 

@@ -10,6 +10,24 @@ resumes with context instead of waking up fresh.
 {
   "sessions": [
     {
+      "date": "2026-06-15 17:08 PT",
+      "title": "Obsidian and Canvas deep dive",
+      "summary": "Operator requested a full Obsidian entry covering Canvas, plugins, JavaScript embed paths, library crosswalks, and Cursor integration. Opened the Structure category.",
+      "did": [
+        "Resumed with good morning recap from log and library-state",
+        "Researched Obsidian Electron architecture, JSON Canvas spec, plugin API, HTML embed plugins, and Cursor Bridge workflow",
+        "Filed obsidian entry with intro, library link, lambda tips, AI/build folds, wikilink preview, and JSON Canvas SVG demo",
+        "Opened Structure category (first entry); updated manifest and library-state to six entries"
+      ],
+      "next": [
+        "Publish in GitHub Desktop so home PC clone has log and obsidian entry",
+        "Confirm GitHub Pages renders obsidian demo block and preview on live site",
+        "Optional header images for chartjs and react entries",
+        "Run first audit (mode 5)",
+        "RPS pump TDH lookup tool with Chart.js (discussed, hand to other bot or file later)"
+      ]
+    },
+    {
       "date": "2026-06-15 14:39 PT",
       "title": "Four new entries and the demo engine",
       "summary": "Grew the archive from one entry to five. Added demo blocks for live JS libraries, library meta conventions, and a deep Chart.js expansion with nine interactive demos.",
