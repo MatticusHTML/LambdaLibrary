@@ -45,7 +45,8 @@ Topics that came up in conversation and are worth filing later. Lambda adds to
 this list when something is named but not yet researched, and removes a line
 once it becomes a real entry.
 
-- (none yet)
+- RPS pump TDH lookup tool with Chart.js (horizontal TDH line, multi-model curves; discussed with RPS_PUMP_DATA_FULL.md)
+- Optional header images for chartjs and react entries
 
 ## Conventions learned
 

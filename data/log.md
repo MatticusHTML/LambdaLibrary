@@ -10,6 +10,24 @@ resumes with context instead of waking up fresh.
 {
   "sessions": [
     {
+      "date": "2026-06-15 14:39 PT",
+      "title": "Four new entries and the demo engine",
+      "summary": "Grew the archive from one entry to five. Added demo blocks for live JS libraries, library meta conventions, and a deep Chart.js expansion with nine interactive demos.",
+      "did": [
+        "Added header images to html-vs-css and psychart entries",
+        "Built demo block engine support for script-enabled library charts",
+        "Filed psychart (Graphs), chartjs, react, and python with intros, library links, and teacher folds",
+        "Expanded chartjs with config deep dive and nine live demos including pump-themed multi-line and scatter",
+        "Added library and intro meta fields, code panel text wrap, and filing conventions to AGENTS and SCHEMA"
+      ],
+      "next": [
+        "Publish in GitHub Desktop and confirm GitHub Pages serves demo blocks (CDN access required)",
+        "Optional headers for chartjs and react entries",
+        "Run first audit (mode 5)",
+        "RPS pump TDH tool with Chart.js (discussed, hand to other bot or file later)"
+      ]
+    },
+    {
       "date": "2026-06-15 18:55 PT",
       "title": "Built the starter and the session loop",
       "summary": "Stood up Lambda // Index from nothing: the index hub, the engine, the first entry, and the goodnight to good morning workflow.",
