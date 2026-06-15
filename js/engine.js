@@ -206,6 +206,7 @@ function showReader(e){
     "<div class='reader-meta'><span class='cat'>" + esc(e.category) + "</span> &middot; filed " + esc(e.added || "") + (e.updated && e.updated !== e.added ? " &middot; updated " + esc(e.updated) : "") + "</div>" +
     "<h1 class='reader-title'>" + esc(e.title) + "</h1>" +
     (e.library ? "<a class='reader-library' href='" + esc(e.library) + "' target='_blank' rel='noopener'>Library <span class='lib-url'>" + esc(libraryLabel(e.library)) + "</span></a>" : "") +
+    (e.intro ? "<p class='reader-intro'>" + esc(e.intro) + "</p>" : "") +
     (e.tags.length ? "<div class='reader-tags'>" + e.tags.map((t) => "<span class='tag'>" + esc(t) + "</span>").join("") + "</div>" : "") +
     "<div class='doc'>" + renderBody(e.body) + "</div>" +
     "<div class='reader-foot'>" +

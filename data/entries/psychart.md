@@ -8,6 +8,7 @@
   "tags": ["psychart", "pumpchart", "psychrometric", "graphs", "javascript", "npm", "hvac", "engineering"],
   "summary": "The psychart npm package renders Psychart (HVAC psychrometric charts) and Pumpchart (pump performance curves) in the browser. Pump curves, operation points, and live demos included.",
   "library": "https://npm.nicfv.com/index.html",
+  "intro": "This tool draws visual charts for pump performance and indoor air conditions right in your browser. It is useful when you need to see where a submersible pump runs on its curve, or how warm and humid the air in a space actually is, before you wade into the formulas. You feed it numbers, it gives you a picture.",
   "sources": [
     "https://npm.nicfv.com/index.html",
     "https://npm.nicfv.com/documents/psychart.Examples_Pump_Curve.html",
@@ -15,7 +16,7 @@
     "https://github.com/nicfv/npm"
   ],
   "added": "2026-06-15 12:43 PT",
-  "updated": "2026-06-15 12:48 PT",
+  "updated": "2026-06-15 13:05 PT",
   "verdict": "Two chart types, one package. Plot the state, append the element, read the curves. The library does the thermodynamics so you can focus on the system."
 }
 ```

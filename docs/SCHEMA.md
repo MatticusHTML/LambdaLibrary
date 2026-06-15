@@ -21,6 +21,7 @@ for the index card, and renders everything after the json block as the doc.
   "tags": ["lowercase", "kebab-tags"],
   "summary": "One or two sentences for the index card.",
   "library": "Required when the entry covers a library or package. Primary URL: npm page, docs site, or repo homepage.",
+  "intro": "Required on library entries. Plain-language opener for a non-expert. What the tool is for, in human terms, before the technical sections.",
   "header": "Optional. Path to a hero image, e.g. assets/entries/slug-header.png",
   "sources": ["MDN Web Docs", "https://example.com/page", "Cameron, in person"],
   "added": "2026-06-15 09:12 PT",
@@ -38,6 +39,9 @@ Rules:
 - `library` is required on any entry that discusses a library, package, or framework.
   Use the primary home URL (docs site, npm page, or official repo). The engine
   renders it as a prominent link in the reader.
+- `intro` is required on library entries. One or two sentences in plain language
+  for someone who is not a pro yet. The engine renders it under the library link,
+  before the body.
 - No em dashes in any field.
 
 ### Body

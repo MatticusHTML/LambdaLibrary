@@ -118,6 +118,8 @@ LAMBDA // INDEX
 5. For libraries and graph tools, also include:
    - A `library` field in meta pointing to the primary library URL. Required.
      The engine renders it as a prominent link in the reader.
+   - An `intro` field in meta: plain-language description for a beginner. What
+     the tool is for in human terms, before the technical dive. Required.
    - Lambda tip callouts (`lambda-tip` divs) with practical teacher notes.
    - Collapsible folds (`entry-fold` details): "Prompt an AI" and "Build it yourself".
    - A short note when a demo block was required and why (preview vs demo).

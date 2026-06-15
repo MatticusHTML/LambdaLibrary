@@ -70,6 +70,8 @@ relitigated every session.
 - 2026-06-15: Library entries always carry a `library` URL in meta. Required.
   Engine shows it as a prominent reader link. Operator rule: never file a library
   entry without one.
+- 2026-06-15: Library entries also carry an `intro` in meta: a plain-language
+  opener for beginners, rendered under the library link before the body.
 - 2026-06-15: Library and graph entries include Lambda tip callouts, collapsible
   folds for "Prompt an AI" vs "Build it yourself", and live `demo` blocks that
   use the library itself. Pin CDN versions for stability.
