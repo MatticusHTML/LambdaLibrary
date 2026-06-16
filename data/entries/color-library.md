@@ -23,7 +23,7 @@
 
 Tool entry. Opens full page from the index.
 
-**Base** is the general CSS roster (300+ colors). **DLC packs** are curated palettes filed in `data/color-dlc.json`. Each pack can ship its own theme and layout. First DLC: **The Finals** (Embark Studios brand colors from the official brand guide).
+**Base** is the general CSS roster (300+ colors). **DLC packs** are curated palettes filed in `data/color-dlc.json`. Each pack uses the same grid UI with its own theme. First DLC: **The Finals** (Embark Studios brand colors from the official brand guide).
 
 For hex, RGB, and HSL theory, see [css-colors](#/e/css-colors).
 

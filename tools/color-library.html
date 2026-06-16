@@ -43,8 +43,7 @@
   }
   .head-icon[hidden] { display: none; }
   .controls[hidden],
-  .grid[hidden],
-  .brand-row[hidden] { display: none !important; }
+  .grid[hidden] { display: none !important; }
   .head h1 {
     margin: 0;
     font-size: 15px;
@@ -498,7 +497,6 @@
     <section class="roster" aria-label="Color roster">
       <div class="roster-meta" id="roster-meta">Loading...</div>
       <div class="grid" id="grid"></div>
-      <div class="brand-row" id="brand-row" hidden></div>
     </section>
     <aside class="showcase" aria-label="Selected color">
       <div class="showcase-tag">PREVIEW</div>
@@ -681,7 +679,6 @@
   const dlcBarEl = document.getElementById("dlc-bar");
   const tabsEl = document.getElementById("tabs");
   const gridEl = document.getElementById("grid");
-  const brandRowEl = document.getElementById("brand-row");
   const searchEl = document.getElementById("search");
   const controlsEl = document.getElementById("controls");
 
@@ -719,6 +716,7 @@
     const headIcon = document.getElementById("head-icon");
     if (pack.icon) {
       headIcon.hidden = false;
+      headIcon.onerror = () => { headIcon.hidden = true; };
       headIcon.src = resolveIcon(pack.icon);
       headIcon.alt = pack.name + " icon";
     } else {
@@ -735,13 +733,6 @@
     } else {
       srcEl.hidden = true;
     }
-    const isBrand = pack.layout === "brand";
-    controlsEl.hidden = isBrand;
-    gridEl.hidden = isBrand;
-    brandRowEl.hidden = !isBrand;
-    document.getElementById("hint").textContent = isBrand
-      ? "Click a swatch to preview and copy"
-      : "Arrow keys move selection when roster is focused";
     renderTypography(pack);
   }
 
@@ -822,8 +813,7 @@
   function selectIndex(i) {
     if (!visible.length) return;
     selIdx = Math.max(0, Math.min(i, visible.length - 1));
-    if (activePack.layout === "brand") renderBrand();
-    else renderGrid();
+    renderGrid();
     renderShowcase();
   }
 
@@ -835,7 +825,7 @@
       b.className = "dlc-btn" + (activePack.id === p.id ? " on" : "");
       let inner = "";
       if (p.icon) {
-        inner += "<img class='dlc-icon' src='" + escHtml(resolveIcon(p.icon)) + "' alt='' />";
+        inner += "<img class='dlc-icon' src='" + escHtml(resolveIcon(p.icon)) + "' alt='' onerror='this.style.display=\"none\"' />";
       }
       inner += "<span>" + escHtml(p.name) + "</span>";
       if (p.badge) inner += "<span class='badge'>" + escHtml(p.badge) + "</span>";
@@ -858,13 +848,7 @@
     applyTheme(p);
     renderDlcBar();
     renderTabs();
-    if (p.layout === "brand") {
-      gridEl.innerHTML = "";
-      renderBrand();
-    } else {
-      brandRowEl.innerHTML = "";
-      renderGrid();
-    }
+    renderGrid();
   }
 
   function renderTabs() {
@@ -902,39 +886,6 @@
     renderShowcase();
   }
 
-  function renderBrand() {
-    visible = filtered();
-    if (selIdx >= visible.length) selIdx = 0;
-    brandRowEl.innerHTML = "";
-    visible.forEach((c, i) => {
-      const rgb = c.rgb || hexToRgb(c.hex);
-      const card = document.createElement("button");
-      card.type = "button";
-      card.className = "brand-card" + (i === selIdx ? " on" : "");
-      const role = document.createElement("div");
-      role.className = "brand-role";
-      role.textContent = c.role || c.family;
-      const sw = document.createElement("div");
-      sw.className = "brand-swatch";
-      sw.style.background = c.hex;
-      const corner = document.createElement("span");
-      corner.className = "corner-name";
-      corner.textContent = c.name;
-      corner.style.color = labelLight(c.hex) ? "#1D1A20" : "#E5E6E8";
-      sw.appendChild(corner);
-      const codes = document.createElement("div");
-      codes.className = "brand-codes";
-      codes.innerHTML =
-        "<b>HEX</b> " + c.hex.toUpperCase() + "<br>" +
-        "<b>RGB</b> " + rgb.join(" ") +
-        (c.cmyk ? "<br><b>CMYK</b> " + c.cmyk.join(" ") : "");
-      card.append(role, sw, codes);
-      card.onclick = () => { selIdx = i; renderBrand(); renderShowcase(); };
-      brandRowEl.appendChild(card);
-    });
-    renderShowcase();
-  }
-
   document.getElementById("copy").onclick = async () => {
     const c = selected();
     if (!c) return;
@@ -952,8 +903,7 @@
   searchEl.addEventListener("input", () => {
     query = searchEl.value.trim();
     selIdx = 0;
-    if (activePack.layout === "brand") renderBrand();
-    else renderGrid();
+    renderGrid();
   });
   gridEl.tabIndex = 0;
   gridEl.addEventListener("keydown", (e) => {
@@ -981,7 +931,7 @@
             icon: p.icon || "",
             subtitle: p.subtitle || p.name.toUpperCase(),
             source: p.source || "",
-            layout: p.layout || "grid",
+            layout: "grid",
             theme: p.theme || {},
             typography: p.typography || null,
             colors: (p.colors || []).map((c) => ({

@@ -97,3 +97,6 @@ relitigated every session.
 - 2026-06-16: DLC `typography` block is optional. Show the Typography dropdown in
   the tool only when the operator provides font specs with a pack. Colors-only DLCs
   skip it.
+- 2026-06-16: Color DLC pack icons: operator supplies a square image (~250×250 px,
+  PNG usual). File at `assets/dlc/<pack-id>-icon.png`, referenced in
+  `data/color-dlc.json` as `assets/dlc/<pack-id>-icon.png`.
