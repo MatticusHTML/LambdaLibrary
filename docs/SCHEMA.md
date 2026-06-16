@@ -100,6 +100,12 @@ no split code panel, no reader prose chrome.
 The entry markdown body can be minimal (one line pointing to a related reader
 entry is fine). The index card shows a **Tool** badge.
 
+**Color Library DLC:** curated palette packs are stored in `data/color-dlc.json`.
+The Base pack is generated inside `tools/color-library.html`. Each DLC entry
+includes colors (hex required; rgb/cmyk optional), optional `theme` for UI
+skinning, optional `typography` (only when operator provides font specs; tool shows
+a Typography dropdown), and `layout: "brand"` for tall swatch brand-guide presentation.
+
 ### Teaching aids (optional HTML in the body)
 
 Library and graph entries often include:

@@ -1,0 +1,92 @@
+{
+  "packs": [
+    {
+      "id": "the-finals",
+      "name": "The Finals",
+      "badge": "DLC",
+      "icon": "assets/dlc/the-finals-icon.png",
+      "subtitle": "THE FINALS PALETTE",
+      "source": "THE FINALS Brand Guide, Colors page (operator screenshot, 2026-06-16)",
+      "layout": "brand",
+      "typography": {
+        "source": "THE FINALS Brand Guide, Typography page (operator screenshot, 2026-06-16)",
+        "primary": "Saira",
+        "googleFonts": "https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;700&family=Saira+ExtraCondensed:ital,wght@1,800&display=swap",
+        "roles": [
+          {
+            "role": "Header",
+            "spec": "Saira ExtraCondensed ExtraBold Italic",
+            "sample": "REACH THE FINALS",
+            "css": "font-family: 'Saira Extra Condensed', sans-serif; font-weight: 800; font-style: italic;"
+          },
+          {
+            "role": "Subheader",
+            "spec": "Saira ExtraCondensed ExtraBold Italic",
+            "sample": "EMBARK STUDIOS",
+            "css": "font-family: 'Saira Extra Condensed', sans-serif; font-weight: 800; font-style: italic; font-size: 0.85em;"
+          },
+          {
+            "role": "Body",
+            "spec": "Saira Condensed Medium",
+            "sample": "Destroy the arena. Steal the cashout.",
+            "css": "font-family: 'Saira Condensed', sans-serif; font-weight: 500; font-style: normal;"
+          },
+          {
+            "role": "Body emphasis",
+            "spec": "Saira Condensed Bold",
+            "sample": "Season 4 live now",
+            "css": "font-family: 'Saira Condensed', sans-serif; font-weight: 700; font-style: normal;"
+          }
+        ],
+        "alternates": [
+          { "locale": "Korean", "font": "Noto Sans KR" },
+          { "locale": "Traditional Chinese", "font": "Noto Sans TC" },
+          { "locale": "Simplified Chinese", "font": "Noto Sans SC" },
+          { "locale": "Thai", "font": "Noto Sans Thai" }
+        ]
+      },
+      "theme": {
+        "accent": "#D21F3C",
+        "highlight": "#F7BB2B",
+        "text": "#E5E6E8",
+        "muted": "#9aa0a8",
+        "bg": "#1a1014",
+        "bgGradient": "radial-gradient(ellipse 90% 70% at 50% 0%, rgba(210, 31, 60, 0.42) 0%, transparent 55%), radial-gradient(ellipse 60% 40% at 80% 100%, rgba(29, 26, 32, 0.9) 0%, transparent 50%), #140c10"
+      },
+      "colors": [
+        {
+          "name": "The Finals Red",
+          "hex": "#D21F3C",
+          "family": "Primary",
+          "role": "Primary",
+          "rgb": [210, 31, 60],
+          "cmyk": [11, 100, 79, 2]
+        },
+        {
+          "name": "The Finals White",
+          "hex": "#E5E6E8",
+          "family": "Neutral",
+          "role": "Neutral",
+          "rgb": [229, 230, 232],
+          "cmyk": [9, 6, 5, 0]
+        },
+        {
+          "name": "The Finals Black",
+          "hex": "#1D1A20",
+          "family": "Neutral",
+          "role": "Neutral",
+          "rgb": [29, 26, 32],
+          "cmyk": [74, 71, 61, 75]
+        },
+        {
+          "name": "The Finals Yellow",
+          "hex": "#F7BB2B",
+          "family": "Complementary",
+          "role": "Complementary",
+          "rgb": [247, 187, 43],
+          "cmyk": [3, 28, 95, 0]
+        }
+      ]
+    }
+  ]
+}

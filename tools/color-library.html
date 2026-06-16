@@ -16,32 +16,100 @@
   }
   .screen {
     display: grid;
-    grid-template-rows: auto auto 1fr;
+    grid-template-rows: auto auto auto 1fr;
     height: 100%;
     background:
       radial-gradient(ellipse 100% 60% at 50% -10%, rgba(30, 58, 95, 0.85) 0%, transparent 55%),
       radial-gradient(ellipse 80% 50% at 100% 100%, rgba(69, 210, 255, 0.06) 0%, transparent 50%),
       #050608;
+    transition: background 0.25s ease;
   }
   .head {
     text-align: center;
-    padding: 14px 16px 6px;
+    padding: 12px 16px 6px;
     border-bottom: 1px solid rgba(69, 210, 255, 0.12);
     background: rgba(8, 10, 14, 0.75);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
+  .head-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    margin-bottom: 8px;
+    object-fit: cover;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  }
+  .head-icon[hidden] { display: none; }
   .head h1 {
     margin: 0;
     font-size: 15px;
     font-weight: 800;
     letter-spacing: 0.48em;
-    color: #45d2ff;
-    text-shadow: 0 0 24px rgba(69, 210, 255, 0.4);
+    color: var(--cl-accent, #45d2ff);
+    text-shadow: 0 0 24px color-mix(in srgb, var(--cl-accent, #45d2ff) 40%, transparent);
   }
   .head p {
     margin: 6px 0 0;
     font-size: 10px;
     letter-spacing: 0.28em;
-    color: #6b7686;
+    color: var(--cl-muted, #6b7686);
+  }
+  .dlc-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(6, 8, 12, 0.92);
+    align-items: center;
+  }
+  .dlc-label {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    color: var(--cl-muted, #6b7686);
+    margin-right: 4px;
+  }
+  .dlc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 2px solid #2a3548;
+    border-radius: 4px;
+    background: rgba(14, 17, 24, 0.95);
+    color: #9aa6b8;
+    cursor: pointer;
+    transition: border-color 0.12s, color 0.12s, box-shadow 0.12s, transform 0.08s;
+  }
+  .dlc-btn:hover { border-color: var(--cl-accent, #45d2ff); color: #fff; }
+  .dlc-btn.on {
+    border-color: var(--cl-highlight, #ffd54a);
+    color: var(--cl-highlight, #ffd54a);
+    box-shadow: 0 0 14px color-mix(in srgb, var(--cl-highlight, #ffd54a) 35%, transparent);
+    transform: translateY(-1px);
+  }
+  .dlc-btn .dlc-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .dlc-btn .badge {
+    font-size: 8px;
+    margin-left: 6px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    background: color-mix(in srgb, var(--cl-accent, #45d2ff) 25%, transparent);
+    color: var(--cl-accent, #45d2ff);
+    letter-spacing: 0.08em;
   }
   .controls {
     display: flex;
@@ -63,7 +131,7 @@
     font-size: 13px;
     outline: none;
   }
-  .search:focus { border-color: #45d2ff; box-shadow: 0 0 0 2px rgba(69, 210, 255, 0.15); }
+  .search:focus { border-color: var(--cl-accent, #45d2ff); }
   .search::placeholder { color: #6b7686; }
   .tabs {
     display: flex;
@@ -84,14 +152,13 @@
     background: rgba(20, 26, 38, 0.9);
     color: #9aa6b8;
     cursor: pointer;
-    transition: border-color 0.12s, color 0.12s, box-shadow 0.12s, transform 0.08s;
+    transition: border-color 0.12s, color 0.12s, box-shadow 0.12s;
   }
-  .tab:hover { border-color: #45d2ff; color: #fff; }
+  .tab:hover { border-color: var(--cl-accent, #45d2ff); color: #fff; }
   .tab.on {
-    border-color: #ffd54a;
-    color: #ffd54a;
-    box-shadow: 0 0 12px rgba(255, 213, 74, 0.3);
-    transform: translateY(-1px);
+    border-color: var(--cl-highlight, #ffd54a);
+    color: var(--cl-highlight, #ffd54a);
+    box-shadow: 0 0 12px color-mix(in srgb, var(--cl-highlight, #ffd54a) 30%, transparent);
   }
   .main {
     display: grid;
@@ -102,6 +169,8 @@
   @media (max-width: 700px) {
     .main { grid-template-columns: 1fr; grid-template-rows: 1fr auto; }
     .showcase { max-height: 220px; border-left: none; border-top: 2px solid #3a4a62; }
+    .brand-row { flex-direction: column; align-items: stretch; }
+    .brand-card { max-width: none; min-height: 200px; }
   }
   .roster {
     display: flex;
@@ -114,7 +183,7 @@
   .roster-meta {
     font-size: 10px;
     letter-spacing: 0.12em;
-    color: #6b7686;
+    color: var(--cl-muted, #6b7686);
     margin-bottom: 8px;
     text-transform: uppercase;
   }
@@ -143,12 +212,12 @@
   }
   .cell:hover {
     transform: translateY(-3px) scale(1.05);
-    border-color: rgba(69, 210, 255, 0.75);
+    border-color: color-mix(in srgb, var(--cl-accent, #45d2ff) 75%, transparent);
     z-index: 2;
   }
   .cell.on {
-    border-color: #ffd54a;
-    box-shadow: 0 0 18px rgba(255, 213, 74, 0.55), inset 0 -8px 16px rgba(0, 0, 0, 0.2);
+    border-color: var(--cl-highlight, #ffd54a);
+    box-shadow: 0 0 18px color-mix(in srgb, var(--cl-highlight, #ffd54a) 55%, transparent);
     transform: translateY(-4px) scale(1.08);
     z-index: 3;
   }
@@ -167,6 +236,73 @@
     pointer-events: none;
   }
   .cell:hover .lbl, .cell.on .lbl { opacity: 1; }
+  .brand-row {
+    flex: 1;
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+    justify-content: center;
+    padding: 8px 4px 12px;
+    overflow-x: auto;
+    overflow-y: auto;
+    min-height: 0;
+  }
+  .brand-card {
+    flex: 1 1 0;
+    min-width: 100px;
+    max-width: 180px;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    text-align: left;
+    transition: transform 0.12s;
+  }
+  .brand-card:hover { transform: translateY(-4px); }
+  .brand-card.on .brand-swatch {
+    outline: 3px solid var(--cl-highlight, #ffd54a);
+    outline-offset: 3px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  }
+  .brand-role {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    color: var(--cl-text, #e9eef6);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .brand-swatch {
+    flex: 1;
+    min-height: 280px;
+    border-radius: 2px;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+    transition: outline 0.12s, box-shadow 0.12s;
+  }
+  .brand-swatch .corner-name {
+    position: absolute;
+    bottom: 10px;
+    right: 8px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    max-width: 90%;
+    text-align: right;
+    line-height: 1.3;
+    opacity: 0.85;
+  }
+  .brand-codes {
+    margin-top: 10px;
+    font-family: ui-monospace, monospace;
+    font-size: 9px;
+    line-height: 1.65;
+    color: var(--cl-muted, #9aa6b8);
+  }
+  .brand-codes b { color: var(--cl-text, #e9eef6); font-weight: 700; }
   .showcase {
     display: flex;
     flex-direction: column;
@@ -178,36 +314,37 @@
   .showcase-tag {
     font-size: 9px;
     letter-spacing: 0.3em;
-    color: #ffd54a;
+    color: var(--cl-highlight, #ffd54a);
     text-align: center;
     margin-bottom: 10px;
   }
   .hero {
     flex: 1;
-    min-height: 140px;
+    min-height: 120px;
     border-radius: 10px;
     border: 2px solid rgba(255, 255, 255, 0.12);
-    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.35);
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.35);
     transition: background 0.15s;
   }
   .name {
     margin: 14px 0 6px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 800;
     text-align: center;
     text-transform: capitalize;
     line-height: 1.2;
+    color: var(--cl-text, #fff);
   }
   .family {
     text-align: center;
     font-size: 11px;
     letter-spacing: 0.15em;
-    color: #6b7686;
+    color: var(--cl-muted, #6b7686);
     margin-bottom: 12px;
     text-transform: uppercase;
   }
   .codes {
-    font-family: ui-monospace, "Cascadia Code", monospace;
+    font-family: ui-monospace, monospace;
     font-size: 11px;
     line-height: 1.75;
     color: #9aa6b8;
@@ -218,7 +355,7 @@
     margin-bottom: 12px;
     word-break: break-all;
   }
-  .codes b { color: #45d2ff; font-weight: 600; }
+  .codes b { color: var(--cl-accent, #45d2ff); font-weight: 600; }
   .copy {
     width: 100%;
     padding: 12px;
@@ -228,7 +365,7 @@
     font-weight: 800;
     letter-spacing: 0.14em;
     cursor: pointer;
-    background: linear-gradient(180deg, #45d2ff, #1f9ad6);
+    background: linear-gradient(180deg, var(--cl-accent, #45d2ff), color-mix(in srgb, var(--cl-accent, #45d2ff) 65%, #000));
     color: #04121b;
     transition: filter 0.12s, transform 0.08s;
   }
@@ -239,18 +376,118 @@
     margin-top: 10px;
     font-size: 9px;
     text-align: center;
-    color: #6b7686;
+    color: var(--cl-muted, #6b7686);
     letter-spacing: 0.06em;
+  }
+  .pack-source {
+    font-size: 8px;
+    text-align: center;
+    color: var(--cl-muted, #6b7686);
+    margin-top: 8px;
+    line-height: 1.4;
+    opacity: 0.85;
+  }
+  .type-fold {
+    margin-bottom: 10px;
+    border: 1px solid #2a3548;
+    border-radius: 8px;
+    background: #0a0d12;
+    overflow: hidden;
+  }
+  .type-fold[hidden] { display: none; }
+  .type-fold summary {
+    padding: 10px 12px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cl-highlight, #ffd54a);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  .type-fold summary::-webkit-details-marker { display: none; }
+  .type-fold summary::after {
+    content: "+";
+    float: right;
+    font-weight: 400;
+    color: var(--cl-muted, #6b7686);
+  }
+  .type-fold[open] summary::after { content: "−"; }
+  .type-body {
+    padding: 0 12px 12px;
+    max-height: 220px;
+    overflow-y: auto;
+  }
+  .type-body::-webkit-scrollbar { width: 5px; }
+  .type-body::-webkit-scrollbar-thumb { background: #2a3d55; border-radius: 3px; }
+  .type-primary {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: var(--cl-text, #fff);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .type-row {
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .type-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .type-role {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cl-accent, #45d2ff);
+    margin-bottom: 4px;
+  }
+  .type-spec {
+    font-family: ui-monospace, monospace;
+    font-size: 9px;
+    color: var(--cl-muted, #9aa6b8);
+    margin-bottom: 6px;
+    line-height: 1.45;
+  }
+  .type-sample {
+    font-size: 15px;
+    line-height: 1.2;
+    color: var(--cl-text, #e9eef6);
+    text-transform: uppercase;
+    word-break: break-word;
+  }
+  .type-alts {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .type-alts-label {
+    font-size: 8px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--cl-muted, #6b7686);
+    margin-bottom: 6px;
+  }
+  .type-alt {
+    font-size: 9px;
+    color: #9aa6b8;
+    margin: 3px 0;
+    font-family: ui-monospace, monospace;
   }
 </style>
 </head>
 <body>
-<div class="screen">
+<div class="screen" id="screen">
   <header class="head">
-    <h1>COLOR LIBRARY</h1>
-    <p>SELECT YOUR SHADE</p>
+    <img id="head-icon" class="head-icon" hidden alt="" />
+    <h1 id="head-title">COLOR LIBRARY</h1>
+    <p id="head-sub">SELECT YOUR SHADE</p>
   </header>
-  <div class="controls">
+  <div class="dlc-bar" id="dlc-bar">
+    <span class="dlc-label">PACK</span>
+  </div>
+  <div class="controls" id="controls">
     <input class="search" id="search" type="search" placeholder="Search name or hex..." autocomplete="off" />
     <div class="tabs" id="tabs"></div>
   </div>
@@ -258,6 +495,7 @@
     <section class="roster" aria-label="Color roster">
       <div class="roster-meta" id="roster-meta">Loading...</div>
       <div class="grid" id="grid"></div>
+      <div class="brand-row" id="brand-row" hidden></div>
     </section>
     <aside class="showcase" aria-label="Selected color">
       <div class="showcase-tag">PREVIEW</div>
@@ -265,8 +503,13 @@
       <h2 class="name" id="name"></h2>
       <div class="family" id="family"></div>
       <div class="codes" id="codes"></div>
+      <details class="type-fold" id="type-fold" hidden>
+        <summary>Typography</summary>
+        <div class="type-body" id="type-body"></div>
+      </details>
       <button type="button" class="copy" id="copy">COPY HEX</button>
-      <p class="hint">Arrow keys move selection when roster is focused</p>
+      <p class="hint" id="hint">Arrow keys move selection when roster is focused</p>
+      <p class="pack-source" id="pack-source" hidden></p>
     </aside>
   </div>
 </div>
@@ -370,11 +613,14 @@
     });
     return 0.2126 * r + 0.7152 * g + 0.0722 * b > 0.45;
   }
-  function buildPalette() {
+  function normHex(hex) {
+    return hex.startsWith("#") ? hex.toLowerCase() : ("#" + hex).toLowerCase();
+  }
+  function buildBasePalette() {
     const seen = new Set();
     const out = [];
     function add(name, hex, family) {
-      const key = hex.toLowerCase();
+      const key = normHex(hex);
       if (seen.has(key)) return;
       seen.add(key);
       out.push({ name, hex: key, family });
@@ -406,19 +652,44 @@
     return out.sort((a, b) => a.family.localeCompare(b.family) || a.name.localeCompare(b.name));
   }
 
-  const PALETTE = buildPalette();
-  const FAMILIES = ["All", ...Array.from(new Set(PALETTE.map((c) => c.family))).sort()];
+  const BASE_PACK = {
+    id: "base",
+    name: "Base",
+    subtitle: "SELECT YOUR SHADE",
+    layout: "grid",
+    theme: {
+      accent: "#45d2ff",
+      highlight: "#ffd54a",
+      text: "#e9eef6",
+      muted: "#6b7686",
+      bgGradient: "radial-gradient(ellipse 100% 60% at 50% -10%, rgba(30, 58, 95, 0.85) 0%, transparent 55%), radial-gradient(ellipse 80% 50% at 100% 100%, rgba(69, 210, 255, 0.06) 0%, transparent 50%), #050608"
+    },
+    colors: buildBasePalette()
+  };
+
+  let packs = [BASE_PACK];
+  let activePack = BASE_PACK;
   let filter = "All";
   let query = "";
   let visible = [];
   let selIdx = 0;
 
+  const screenEl = document.getElementById("screen");
+  const dlcBarEl = document.getElementById("dlc-bar");
   const tabsEl = document.getElementById("tabs");
   const gridEl = document.getElementById("grid");
+  const brandRowEl = document.getElementById("brand-row");
   const searchEl = document.getElementById("search");
+  const controlsEl = document.getElementById("controls");
+
+  function palette() { return activePack.colors; }
+
+  function families() {
+    return ["All", ...Array.from(new Set(palette().map((c) => c.family))).sort()];
+  }
 
   function filtered() {
-    return PALETTE.filter((c) => {
+    return palette().filter((c) => {
       if (filter !== "All" && c.family !== filter) return false;
       if (!query) return true;
       const q = query.toLowerCase();
@@ -428,33 +699,169 @@
 
   function selected() { return visible[selIdx] || visible[0]; }
 
+  function resolveIcon(path) {
+    if (!path) return "";
+    if (/^https?:\/\//i.test(path)) return path;
+    const clean = path.replace(/^\//, "");
+    return "../" + clean;
+  }
+
+  function applyTheme(pack) {
+    const t = pack.theme || {};
+    document.documentElement.style.setProperty("--cl-accent", t.accent || "#45d2ff");
+    document.documentElement.style.setProperty("--cl-highlight", t.highlight || "#ffd54a");
+    document.documentElement.style.setProperty("--cl-text", t.text || "#e9eef6");
+    document.documentElement.style.setProperty("--cl-muted", t.muted || "#6b7686");
+    if (t.bgGradient) screenEl.style.background = t.bgGradient;
+    const headIcon = document.getElementById("head-icon");
+    if (pack.icon) {
+      headIcon.hidden = false;
+      headIcon.src = resolveIcon(pack.icon);
+      headIcon.alt = pack.name + " icon";
+    } else {
+      headIcon.hidden = true;
+      headIcon.removeAttribute("src");
+    }
+    document.getElementById("head-title").textContent =
+      pack.id === "base" ? "COLOR LIBRARY" : pack.name.toUpperCase();
+    document.getElementById("head-sub").textContent = pack.subtitle || "SELECT YOUR SHADE";
+    const srcEl = document.getElementById("pack-source");
+    if (pack.source) {
+      srcEl.hidden = false;
+      srcEl.textContent = pack.source;
+    } else {
+      srcEl.hidden = true;
+    }
+    const isBrand = pack.layout === "brand";
+    controlsEl.hidden = isBrand;
+    gridEl.hidden = isBrand;
+    brandRowEl.hidden = !isBrand;
+    document.getElementById("hint").textContent = isBrand
+      ? "Click a swatch to preview and copy"
+      : "Arrow keys move selection when roster is focused";
+    renderTypography(pack);
+  }
+
+  function loadDlcFonts(url) {
+    if (!url) return;
+    let link = document.getElementById("dlc-fonts");
+    if (!link) {
+      link = document.createElement("link");
+      link.id = "dlc-fonts";
+      link.rel = "stylesheet";
+      document.head.appendChild(link);
+    }
+    if (link.href !== url) link.href = url;
+  }
+
+  function renderTypography(pack) {
+    const fold = document.getElementById("type-fold");
+    const body = document.getElementById("type-body");
+    const ty = pack.typography;
+    if (!ty || !ty.roles || !ty.roles.length) {
+      fold.hidden = true;
+      body.innerHTML = "";
+      return;
+    }
+    fold.hidden = false;
+    loadDlcFonts(ty.googleFonts || "");
+    let html = "";
+    if (ty.primary) {
+      html += "<div class='type-primary' style='" + escHtml((ty.roles[0] && ty.roles[0].css) || "") + "'>" +
+        escHtml(ty.primary) + "</div>";
+    }
+    ty.roles.forEach((r) => {
+      html += "<div class='type-row'>" +
+        "<div class='type-role'>" + escHtml(r.role) + "</div>" +
+        "<div class='type-spec'>" + escHtml(r.spec) + "</div>" +
+        "<div class='type-sample' style='" + escHtml(r.css || "") + "'>" + escHtml(r.sample || r.spec) + "</div>" +
+        "</div>";
+    });
+    if (ty.alternates && ty.alternates.length) {
+      html += "<div class='type-alts'><div class='type-alts-label'>Alternative charsets</div>";
+      ty.alternates.forEach((a) => {
+        html += "<div class='type-alt'>" + escHtml(a.locale) + ": " + escHtml(a.font) + "</div>";
+      });
+      html += "</div>";
+    }
+    body.innerHTML = html;
+    if (ty.source) {
+      const note = document.createElement("p");
+      note.className = "pack-source";
+      note.style.marginTop = "8px";
+      note.textContent = ty.source;
+      body.appendChild(note);
+    }
+  }
+
+  function colorCodesHtml(c) {
+    const rgb = c.rgb || hexToRgb(c.hex);
+    const [h, s, l] = rgbToHsl(rgb[0], rgb[1], rgb[2]);
+    let html =
+      "<b>hex</b> " + c.hex + "<br><b>rgb</b> rgb(" + rgb.join(", ") + ")<br>" +
+      "<b>hsl</b> hsl(" + h + ", " + s + "%, " + l + "%)";
+    if (c.cmyk) html += "<br><b>cmyk</b> " + c.cmyk.join(" ") + "%";
+    if (c.role) html += "<br><b>role</b> " + c.role;
+    return html;
+  }
+
   function renderShowcase() {
     const c = selected();
     if (!c) return;
-    const [r, g, b] = hexToRgb(c.hex);
-    const [h, s, l] = rgbToHsl(r, g, b);
     document.getElementById("hero").style.background = c.hex;
     document.getElementById("name").textContent = c.name;
-    document.getElementById("family").textContent = c.family;
-    document.getElementById("codes").innerHTML =
-      "<b>hex</b> " + c.hex + "<br><b>rgb</b> rgb(" + r + ", " + g + ", " + b + ")<br>" +
-      "<b>hsl</b> hsl(" + h + ", " + s + "%, " + l + "%)";
+    document.getElementById("family").textContent = c.family + (activePack.id !== "base" ? " / " + activePack.name : "");
+    document.getElementById("codes").innerHTML = colorCodesHtml(c);
     document.getElementById("roster-meta").textContent =
-      visible.length + " colors shown / " + PALETTE.length + " total";
+      activePack.name.toUpperCase() + " / " + visible.length + " shown / " + palette().length + " total";
   }
 
   function selectIndex(i) {
     if (!visible.length) return;
     selIdx = Math.max(0, Math.min(i, visible.length - 1));
-    renderGrid();
+    if (activePack.layout === "brand") renderBrand();
+    else renderGrid();
     renderShowcase();
-    const on = gridEl.querySelector(".cell.on");
-    if (on) on.scrollIntoView({ block: "nearest", inline: "nearest" });
+  }
+
+  function renderDlcBar() {
+    dlcBarEl.querySelectorAll(".dlc-btn").forEach((el) => el.remove());
+    packs.forEach((p) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "dlc-btn" + (activePack.id === p.id ? " on" : "");
+      let inner = "";
+      if (p.icon) {
+        inner += "<img class='dlc-icon' src='" + escHtml(resolveIcon(p.icon)) + "' alt='' />";
+      }
+      inner += "<span>" + escHtml(p.name) + "</span>";
+      if (p.badge) inner += "<span class='badge'>" + escHtml(p.badge) + "</span>";
+      b.innerHTML = inner;
+      b.onclick = () => switchPack(p);
+      dlcBarEl.appendChild(b);
+    });
+  }
+
+  function escHtml(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  }
+
+  function switchPack(p) {
+    activePack = p;
+    filter = "All";
+    query = "";
+    selIdx = 0;
+    searchEl.value = "";
+    applyTheme(p);
+    renderDlcBar();
+    renderTabs();
+    if (p.layout === "brand") renderBrand();
+    else renderGrid();
   }
 
   function renderTabs() {
     tabsEl.innerHTML = "";
-    FAMILIES.forEach((f) => {
+    families().forEach((f) => {
       const b = document.createElement("button");
       b.type = "button";
       b.className = "tab" + (filter === f ? " on" : "");
@@ -487,6 +894,39 @@
     renderShowcase();
   }
 
+  function renderBrand() {
+    visible = filtered();
+    if (selIdx >= visible.length) selIdx = 0;
+    brandRowEl.innerHTML = "";
+    visible.forEach((c, i) => {
+      const rgb = c.rgb || hexToRgb(c.hex);
+      const card = document.createElement("button");
+      card.type = "button";
+      card.className = "brand-card" + (i === selIdx ? " on" : "");
+      const role = document.createElement("div");
+      role.className = "brand-role";
+      role.textContent = c.role || c.family;
+      const sw = document.createElement("div");
+      sw.className = "brand-swatch";
+      sw.style.background = c.hex;
+      const corner = document.createElement("span");
+      corner.className = "corner-name";
+      corner.textContent = c.name;
+      corner.style.color = labelLight(c.hex) ? "#1D1A20" : "#E5E6E8";
+      sw.appendChild(corner);
+      const codes = document.createElement("div");
+      codes.className = "brand-codes";
+      codes.innerHTML =
+        "<b>HEX</b> " + c.hex.toUpperCase() + "<br>" +
+        "<b>RGB</b> " + rgb.join(" ") +
+        (c.cmyk ? "<br><b>CMYK</b> " + c.cmyk.join(" ") : "");
+      card.append(role, sw, codes);
+      card.onclick = () => { selIdx = i; renderBrand(); renderShowcase(); };
+      brandRowEl.appendChild(card);
+    });
+    renderShowcase();
+  }
+
   document.getElementById("copy").onclick = async () => {
     const c = selected();
     if (!c) return;
@@ -501,7 +941,12 @@
     }
   };
 
-  searchEl.addEventListener("input", () => { query = searchEl.value.trim(); selIdx = 0; renderGrid(); });
+  searchEl.addEventListener("input", () => {
+    query = searchEl.value.trim();
+    selIdx = 0;
+    if (activePack.layout === "brand") renderBrand();
+    else renderGrid();
+  });
   gridEl.tabIndex = 0;
   gridEl.addEventListener("keydown", (e) => {
     const cols = Math.max(1, Math.floor(gridEl.clientWidth / 64));
@@ -515,12 +960,44 @@
     }
   });
 
-  renderTabs();
-  const start = PALETTE.findIndex((c) => c.hex === "#45d2ff");
-  visible = filtered();
-  selIdx = start >= 0 ? visible.findIndex((c) => c.hex === "#45d2ff") : 0;
-  if (selIdx < 0) selIdx = 0;
-  renderGrid();
+  async function init() {
+    try {
+      const res = await fetch("../data/color-dlc.json", { cache: "no-store" });
+      if (res.ok) {
+        const data = await res.json();
+        (data.packs || []).forEach((p) => {
+          packs.push({
+            id: p.id,
+            name: p.name,
+            badge: p.badge || "DLC",
+            icon: p.icon || "",
+            subtitle: p.subtitle || p.name.toUpperCase(),
+            source: p.source || "",
+            layout: p.layout || "grid",
+            theme: p.theme || {},
+            typography: p.typography || null,
+            colors: (p.colors || []).map((c) => ({
+              name: c.name,
+              hex: normHex(c.hex),
+              family: c.family || "All",
+              role: c.role,
+              rgb: c.rgb,
+              cmyk: c.cmyk
+            }))
+          });
+        });
+      }
+    } catch (_) { /* base only offline */ }
+    applyTheme(BASE_PACK);
+    renderDlcBar();
+    renderTabs();
+    visible = filtered();
+    selIdx = visible.findIndex((c) => c.hex === "#45d2ff");
+    if (selIdx < 0) selIdx = 0;
+    renderGrid();
+  }
+
+  init();
 })();
 </script>
 </body>

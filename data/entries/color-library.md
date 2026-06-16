@@ -5,20 +5,33 @@
   "id": "color-library",
   "title": "Color Library",
   "category": "Web Development",
-  "tags": ["css", "color", "hex", "palette", "design", "ui", "tool", "frontend"],
-  "summary": "Full-page color roster. 300+ shades in a character-select layout. Filter, search, copy hex. Theory lives in css-colors.",
+  "tags": ["css", "color", "hex", "palette", "design", "ui", "tool", "frontend", "dlc"],
+  "summary": "Full-page color tool. Base pack: 300+ CSS shades. DLC packs: curated palettes from games and media. Copy hex, rgb, hsl. Theory in css-colors.",
   "tool": true,
   "toolSrc": "tools/color-library.html",
   "sources": [
     "MDN Web Docs, named colors",
-    "MDN Web Docs, CSS color values"
+    "MDN Web Docs, CSS color values",
+    "THE FINALS Brand Guide, Colors page (operator screenshot, 2026-06-16)",
+    "THE FINALS Brand Guide, Typography page (operator screenshot, 2026-06-16)"
   ],
   "added": "2026-06-16 10:28 PT",
-  "updated": "2026-06-16 11:05 PT",
-  "verdict": "Pick your fighter. Copy the hex. Close the roster. That is faster than scrolling a design tool when you only need a shade."
+  "updated": "2026-06-16 11:55 PT",
+  "verdict": "Base game included. DLC drops when you find a palette worth remembering. The Finals went first."
 }
 ```
 
-Tool entry. The roster opens full page when you select this card from the index.
+Tool entry. Opens full page from the index.
+
+**Base** is the general CSS roster (300+ colors). **DLC packs** are curated palettes filed in `data/color-dlc.json`. Each pack can ship its own theme and layout. First DLC: **The Finals** (Embark Studios brand colors from the official brand guide).
 
 For hex, RGB, and HSL theory, see [css-colors](#/e/css-colors).
+
+## DLC packs on file
+
+| Pack | Colors | Source |
+|------|--------|--------|
+| Base | 300+ | CSS named, HSL grid, Archive, Neon |
+| The Finals | 4 colors + Saira typography | Brand guide colors and typography pages |
+
+To add a DLC later: extend `data/color-dlc.json` with colors (hex required). Add a `typography` block only when you provide font specs from the same media. Publish when ready.

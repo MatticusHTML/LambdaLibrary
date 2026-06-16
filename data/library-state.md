@@ -15,7 +15,7 @@ This file is for the agent and the operator. The website does not read it.
 ## Snapshot
 
 - Entries on file: 8
-- Last filed: 2026-06-16 11:05 PT (color-library tool mode)
+- Last filed: 2026-06-16 11:42 PT (color-library The Finals DLC)
 - Last audit: not yet run
 
 ## Categories in use
@@ -35,7 +35,7 @@ categories. They appear when the first entry lands in one.
 
 ## Tag vocabulary
 
-`html`, `css`, `javascript`, `fundamentals`, `first-entry`, `color`, `hex`, `palette`, `design`, `ui`, `tool`, `psychart`, `pumpchart`, `psychrometric`, `graphs`, `npm`, `hvac`, `engineering`, `chartjs`, `charts`, `canvas`, `data-visualization`, `react`, `components`, `jsx`, `ui`, `frontend`, `python`, `backend`, `django`, `flask`, `programming`, `web-apps`, `obsidian`, `electron`, `markdown`, `plugins`, `typescript`, `cursor`, `knowledge-management`
+`html`, `css`, `javascript`, `fundamentals`, `first-entry`, `color`, `hex`, `palette`, `design`, `ui`, `tool`, `dlc`, `psychart`, `pumpchart`, `psychrometric`, `graphs`, `npm`, `hvac`, `engineering`, `chartjs`, `charts`, `canvas`, `data-visualization`, `react`, `components`, `jsx`, `ui`, `frontend`, `python`, `backend`, `django`, `flask`, `programming`, `web-apps`, `obsidian`, `electron`, `markdown`, `plugins`, `typescript`, `cursor`, `knowledge-management`
 
 Lambda prefers reusing an existing tag over coining a near-synonym. New tags are
 fine when the concept is genuinely new. She does not coin a tag she will use once.
@@ -90,3 +90,10 @@ relitigated every session.
 - 2026-06-16: **Tool entries** use `"tool": true` and `"toolSrc"` in meta. Engine
   opens a full-viewport iframe (`tools/*.html`), not a split preview/demo panel.
   Index cards show a Tool badge. Theory stays in reader entries; tools are for use.
+- 2026-06-16: Color Library **DLC packs** live in `data/color-dlc.json`. Base pack
+  is the built-in roster; each DLC is a named palette (game, film, brand). First
+  DLC: The Finals (#D21F3C red, #E5E6E8 white, #1D1A20 black, #F7BB2B yellow).
+  Operator feeds new DLCs over time with screenshots or official specs.
+- 2026-06-16: DLC `typography` block is optional. Show the Typography dropdown in
+  the tool only when the operator provides font specs with a pack. Colors-only DLCs
+  skip it.
