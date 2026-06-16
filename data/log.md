@@ -10,6 +10,25 @@ resumes with context instead of waking up fresh.
 {
   "sessions": [
     {
+      "date": "2026-06-16 18:45 PT",
+      "title": "Color Library, css-colors, and two DLC packs",
+      "summary": "Filed css-colors theory entry and built out the Color Library tool with pack tabs. Fixed DLC switching bugs, added The Finals and ARC Raiders palettes, and locked header height with a Base pack icon.",
+      "did": [
+        "Good morning recap; filed css-colors with hex focus, format overview, preview blocks, and family dropdown demo",
+        "Fixed Color Library pack tabs: grid-only UI, hidden attribute CSS, immediate render on switch",
+        "Added The Finals DLC with official logo, typography fold, and four brand colors",
+        "Added ARC Raiders DLC with six stripe colors sampled from operator palette art",
+        "Added Base Colors icon so header does not jump between packs; fixed selected swatch overlap on meta line"
+      ],
+      "next": [
+        "Publish in GitHub Desktop so home PC has log, css-colors, color-library tool, and both DLC packs",
+        "Confirm GitHub Pages serves Color Library tool, DLC json, and pack icons on live site",
+        "Optional header images for chartjs and react entries",
+        "Run first audit (mode 5)",
+        "RPS pump TDH lookup tool with Chart.js (discussed, hand to other bot or file later)"
+      ]
+    },
+    {
       "date": "2026-06-15 17:08 PT",
       "title": "Obsidian and Canvas deep dive",
       "summary": "Operator requested a full Obsidian entry covering Canvas, plugins, JavaScript embed paths, library crosswalks, and Cursor integration. Opened the Structure category.",

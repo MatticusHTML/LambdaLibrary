@@ -15,7 +15,7 @@ This file is for the agent and the operator. The website does not read it.
 ## Snapshot
 
 - Entries on file: 8
-- Last filed: 2026-06-16 11:42 PT (color-library The Finals DLC)
+- Last filed: 2026-06-16 18:45 PT (color-library tool, ARC Raiders DLC, Base icon)
 - Last audit: not yet run
 
 ## Categories in use
@@ -46,7 +46,7 @@ Topics that came up in conversation and are worth filing later. Lambda adds to
 this list when something is named but not yet researched, and removes a line
 once it becomes a real entry.
 
-- Publish in GitHub Desktop; confirm GitHub Pages serves demo blocks and the obsidian JSON Canvas demo
+- Publish in GitHub Desktop; confirm GitHub Pages serves demo blocks, obsidian JSON Canvas demo, and Color Library tool with DLC packs and icons
 - RPS pump TDH lookup tool with Chart.js (horizontal TDH line, multi-model curves; discussed with RPS_PUMP_DATA_FULL.md)
 - Optional header images for chartjs and react entries
 - Run first audit (mode 5)
