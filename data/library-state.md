@@ -14,8 +14,8 @@ This file is for the agent and the operator. The website does not read it.
 
 ## Snapshot
 
-- Entries on file: 7
-- Last filed: 2026-06-16 09:45 PT (css-colors)
+- Entries on file: 8
+- Last filed: 2026-06-16 10:28 PT (color-library)
 - Last audit: not yet run
 
 ## Categories in use
@@ -24,7 +24,7 @@ This file is for the agent and the operator. The website does not read it.
 |----------------|-------|
 | Graphs | 2 |
 | Structure | 1 |
-| Web Development | 4 |
+| Web Development | 5 |
 
 When a new entry's category is not on this list, Lambda flags it before filing
 and asks whether to open a new category or fold it into an existing one. This
@@ -35,7 +35,7 @@ categories. They appear when the first entry lands in one.
 
 ## Tag vocabulary
 
-`html`, `css`, `javascript`, `fundamentals`, `first-entry`, `color`, `hex`, `design`, `psychart`, `pumpchart`, `psychrometric`, `graphs`, `npm`, `hvac`, `engineering`, `chartjs`, `charts`, `canvas`, `data-visualization`, `react`, `components`, `jsx`, `ui`, `frontend`, `python`, `backend`, `django`, `flask`, `programming`, `web-apps`, `obsidian`, `electron`, `markdown`, `plugins`, `typescript`, `cursor`, `knowledge-management`
+`html`, `css`, `javascript`, `fundamentals`, `first-entry`, `color`, `hex`, `palette`, `design`, `ui`, `psychart`, `pumpchart`, `psychrometric`, `graphs`, `npm`, `hvac`, `engineering`, `chartjs`, `charts`, `canvas`, `data-visualization`, `react`, `components`, `jsx`, `ui`, `frontend`, `python`, `backend`, `django`, `flask`, `programming`, `web-apps`, `obsidian`, `electron`, `markdown`, `plugins`, `typescript`, `cursor`, `knowledge-management`
 
 Lambda prefers reusing an existing tag over coining a near-synonym. New tags are
 fine when the concept is genuinely new. She does not coin a tag she will use once.
@@ -85,3 +85,5 @@ relitigated every session.
 - 2026-06-16: Fundamentals entries (e.g. `css-colors`) use `preview` for static
   CSS swatches and `demo` when dropdowns or format conversion need JavaScript.
   No `library` or `intro` meta unless the entry is about a package.
+- 2026-06-16: `color-library` is the visual companion to `css-colors`: large
+  interactive roster (character-select UI), linked from css-colors for inspiration.
