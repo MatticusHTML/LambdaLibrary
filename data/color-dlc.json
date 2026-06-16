@@ -86,6 +86,66 @@
           "cmyk": [3, 28, 95, 0]
         }
       ]
+    },
+    {
+      "id": "arc-raiders",
+      "name": "ARC Raiders",
+      "badge": "DLC",
+      "icon": "assets/dlc/arc-raiders-icon.png",
+      "subtitle": "ARC RAIDERS PALETTE",
+      "source": "ARC Raiders logo palette (operator screenshot, 2026-06-16)",
+      "theme": {
+        "accent": "#84f3ec",
+        "highlight": "#fbd208",
+        "text": "#eae1cf",
+        "muted": "#9aa0a8",
+        "bg": "#110817",
+        "bgGradient": "radial-gradient(ellipse 85% 65% at 20% 0%, rgba(132, 243, 236, 0.22) 0%, transparent 50%), radial-gradient(ellipse 70% 50% at 90% 100%, rgba(247, 8, 11, 0.18) 0%, transparent 45%), radial-gradient(ellipse 50% 40% at 60% 30%, rgba(48, 240, 133, 0.08) 0%, transparent 50%), #110817"
+      },
+      "colors": [
+        {
+          "name": "ARC Black",
+          "hex": "#110817",
+          "family": "Neutral",
+          "role": "Background",
+          "rgb": [17, 8, 23]
+        },
+        {
+          "name": "ARC Yellow",
+          "hex": "#fbd208",
+          "family": "Stripe",
+          "role": "Accent",
+          "rgb": [251, 210, 8]
+        },
+        {
+          "name": "ARC Cyan",
+          "hex": "#84f3ec",
+          "family": "Stripe",
+          "role": "Accent",
+          "rgb": [132, 243, 236]
+        },
+        {
+          "name": "ARC Red",
+          "hex": "#f7080b",
+          "family": "Stripe",
+          "role": "Accent",
+          "rgb": [247, 8, 11]
+        },
+        {
+          "name": "ARC Green",
+          "hex": "#30f085",
+          "family": "Stripe",
+          "role": "Accent",
+          "rgb": [48, 240, 133]
+        },
+        {
+          "name": "ARC Cream",
+          "hex": "#eae1cf",
+          "family": "Neutral",
+          "role": "Light",
+          "rgb": [234, 225, 207]
+        }
+      ]
     }
   ]
 }

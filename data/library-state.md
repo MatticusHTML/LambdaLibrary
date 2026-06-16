@@ -93,6 +93,7 @@ relitigated every session.
 - 2026-06-16: Color Library **DLC packs** live in `data/color-dlc.json`. Base pack
   is the built-in roster; each DLC is a named palette (game, film, brand). First
   DLC: The Finals (#D21F3C red, #E5E6E8 white, #1D1A20 black, #F7BB2B yellow).
+  Second DLC: ARC Raiders (6-stripe palette from operator logo art, #110817 through #eae1cf).
   Operator feeds new DLCs over time with screenshots or official specs.
 - 2026-06-16: DLC `typography` block is optional. Show the Typography dropdown in
   the tool only when the operator provides font specs with a pack. Colors-only DLCs
