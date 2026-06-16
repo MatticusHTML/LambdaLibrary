@@ -132,7 +132,9 @@ function renderGrid(){
     const card = document.createElement("button");
     card.className = "card";
     card.innerHTML =
-      "<div class='card-meta'><span class='cat'>" + esc(e.category) + "</span><span>" + esc(dateOnly(e.added)) + "</span></div>" +
+      "<div class='card-meta'><span class='cat'>" + esc(e.category) + "</span>" +
+        (e.tool ? "<span class='card-tool'>Tool</span>" : "") +
+        "<span>" + esc(dateOnly(e.added)) + "</span></div>" +
       "<div class='card-title'>" + esc(e.title) + "</div>" +
       "<div class='card-summary'>" + esc(e.summary) + "</div>" +
       (e.verdict ? "<div class='card-verdict'>" + esc(e.verdict) + "</div>" : "");
@@ -143,9 +145,10 @@ function renderGrid(){
 
 /* ---------- routing ---------- */
 function setView(visibleId){
-  ["index-view", "reader-view", "log-view"].forEach((id) => {
+  ["index-view", "reader-view", "tool-view", "log-view"].forEach((id) => {
     document.getElementById(id).hidden = (id !== visibleId);
   });
+  document.body.classList.toggle("tool-active", visibleId === "tool-view");
 }
 
 function route(){
@@ -153,7 +156,9 @@ function route(){
   if(hash === "#/log"){ return showLog(); }
   const m = hash.match(/^#\/e\/(.+)$/);
   if(m && STATE.byId[m[1]]){
-    showReader(STATE.byId[m[1]]);
+    const entry = STATE.byId[m[1]];
+    if(entry.tool && entry.toolSrc){ showTool(entry); }
+    else { showReader(entry); }
   }else{
     showIndex();
   }
@@ -195,6 +200,20 @@ function renderLog(){
   }
   view.innerHTML = html;
   view.querySelector(".reader-back").onclick = () => { location.hash = "#/"; };
+}
+
+function showTool(e){
+  setView("tool-view");
+  const view = $("#tool-view");
+  view.innerHTML =
+    "<div class='tool-bar'>" +
+      "<button type='button' class='reader-back tool-back'>&larr; Index</button>" +
+      "<span class='tool-title'>" + esc(e.title) + "</span>" +
+      "<a class='tool-side' href='#/e/css-colors'>CSS formats</a>" +
+    "</div>" +
+    "<iframe class='tool-frame' src='" + esc(e.toolSrc) + "' title='" + esc(e.title) + "'></iframe>";
+  view.querySelector(".tool-back").onclick = () => { location.hash = "#/"; };
+  window.scrollTo(0, 0);
 }
 
 function showReader(e){

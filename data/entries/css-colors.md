@@ -9,7 +9,7 @@
   "summary": "How to name colors in CSS, with hex as the default mental model, family dropdowns of real swatches, and the other formats you will see in the wild.",
   "sources": ["MDN Web Docs, CSS color values", "MDN Web Docs, named colors"],
   "added": "2026-06-16 09:45 PT",
-  "updated": "2026-06-16 10:28 PT",
+  "updated": "2026-06-16 11:05 PT",
   "verdict": "Hex is the address book. RGB is the recipe. HSL is the dial. Pick one format and stay consistent until you have a reason to switch."
 }
 ```
@@ -18,7 +18,7 @@ Color in CSS is almost always a **value on a property**: `color`, `background`, 
 
 The format you choose is mostly about how **you** like to think. The browser accepts several. Hex is the one you will see most often in design handoffs, themes, and component libraries.
 
-**Need inspiration, not theory?** Open the [Color Library](#/e/color-library): 300+ clickable colors in a character-select layout. Pick a shade, copy the hex, come back here when you need to understand the format.
+**Need inspiration, not theory?** Open the [Color Library](#/e/color-library) tool: full-page roster, 300+ clickable shades, copy hex in one click.
 
 ## Hex colors (the main format)
 

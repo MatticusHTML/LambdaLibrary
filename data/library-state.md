@@ -15,7 +15,7 @@ This file is for the agent and the operator. The website does not read it.
 ## Snapshot
 
 - Entries on file: 8
-- Last filed: 2026-06-16 10:28 PT (color-library)
+- Last filed: 2026-06-16 11:05 PT (color-library tool mode)
 - Last audit: not yet run
 
 ## Categories in use
@@ -35,7 +35,7 @@ categories. They appear when the first entry lands in one.
 
 ## Tag vocabulary
 
-`html`, `css`, `javascript`, `fundamentals`, `first-entry`, `color`, `hex`, `palette`, `design`, `ui`, `psychart`, `pumpchart`, `psychrometric`, `graphs`, `npm`, `hvac`, `engineering`, `chartjs`, `charts`, `canvas`, `data-visualization`, `react`, `components`, `jsx`, `ui`, `frontend`, `python`, `backend`, `django`, `flask`, `programming`, `web-apps`, `obsidian`, `electron`, `markdown`, `plugins`, `typescript`, `cursor`, `knowledge-management`
+`html`, `css`, `javascript`, `fundamentals`, `first-entry`, `color`, `hex`, `palette`, `design`, `ui`, `tool`, `psychart`, `pumpchart`, `psychrometric`, `graphs`, `npm`, `hvac`, `engineering`, `chartjs`, `charts`, `canvas`, `data-visualization`, `react`, `components`, `jsx`, `ui`, `frontend`, `python`, `backend`, `django`, `flask`, `programming`, `web-apps`, `obsidian`, `electron`, `markdown`, `plugins`, `typescript`, `cursor`, `knowledge-management`
 
 Lambda prefers reusing an existing tag over coining a near-synonym. New tags are
 fine when the concept is genuinely new. She does not coin a tag she will use once.
@@ -87,3 +87,6 @@ relitigated every session.
   No `library` or `intro` meta unless the entry is about a package.
 - 2026-06-16: `color-library` is the visual companion to `css-colors`: large
   interactive roster (character-select UI), linked from css-colors for inspiration.
+- 2026-06-16: **Tool entries** use `"tool": true` and `"toolSrc"` in meta. Engine
+  opens a full-viewport iframe (`tools/*.html`), not a split preview/demo panel.
+  Index cards show a Tool badge. Theory stays in reader entries; tools are for use.

@@ -23,6 +23,8 @@ for the index card, and renders everything after the json block as the doc.
   "library": "Required when the entry covers a library or package. Primary URL: npm page, docs site, or repo homepage.",
   "intro": "Required on library entries. Plain-language opener for a non-expert. What the tool is for, in human terms, before the technical sections.",
   "header": "Optional. Path to a hero image, e.g. assets/entries/slug-header.png",
+  "tool": "Optional. When true, the entry opens as a full-page tool instead of the reader layout.",
+  "toolSrc": "Optional. Path to the tool HTML page, e.g. tools/color-library.html. Required when tool is true.",
   "sources": ["MDN Web Docs", "https://example.com/page", "Cameron, in person"],
   "added": "2026-06-15 09:12 PT",
   "updated": "2026-06-15 09:12 PT",
@@ -87,6 +89,16 @@ Notes:
 - Sandbox allows scripts and same-origin only. Not a GitHub Pages limitation:
   both preview and demo work on any static host; the block type sets behavior.
 - A demo block cannot contain triple backticks.
+
+### Tool entries (full-page utilities)
+
+Some entries are **tools**, not lessons. Set `"tool": true` in meta and point
+`"toolSrc"` at a standalone HTML file (e.g. `tools/color-library.html`). The
+engine opens it in a full-viewport iframe: slim bar (back, title, optional link),
+no split code panel, no reader prose chrome.
+
+The entry markdown body can be minimal (one line pointing to a related reader
+entry is fine). The index card shows a **Tool** badge.
 
 ### Teaching aids (optional HTML in the body)
 
