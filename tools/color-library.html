@@ -42,6 +42,9 @@
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
   }
   .head-icon[hidden] { display: none; }
+  .controls[hidden],
+  .grid[hidden],
+  .brand-row[hidden] { display: none !important; }
   .head h1 {
     margin: 0;
     font-size: 15px;
@@ -855,8 +858,13 @@
     applyTheme(p);
     renderDlcBar();
     renderTabs();
-    if (p.layout === "brand") renderBrand();
-    else renderGrid();
+    if (p.layout === "brand") {
+      gridEl.innerHTML = "";
+      renderBrand();
+    } else {
+      brandRowEl.innerHTML = "";
+      renderGrid();
+    }
   }
 
   function renderTabs() {
