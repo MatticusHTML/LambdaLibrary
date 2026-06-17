@@ -9,7 +9,7 @@
   "summary": "How to name colors in CSS, with hex as the default mental model, family dropdowns of real swatches, and the other formats you will see in the wild.",
   "sources": ["MDN Web Docs, CSS color values", "MDN Web Docs, named colors"],
   "added": "2026-06-16 09:45 PT",
-  "updated": "2026-06-16 11:05 PT",
+  "updated": "2026-06-16 15:20 PT",
   "verdict": "Hex is the address book. RGB is the recipe. HSL is the dial. Pick one format and stay consistent until you have a reason to switch."
 }
 ```
@@ -149,6 +149,12 @@ This is the practical reference layer: not every color on earth, but the shades 
 </div>
 <script>
 const FAMILIES = {
+  "Lambda": [
+    ["Background", "#090b10"], ["Surface", "#0e1118"], ["Surface raised", "#141a26"],
+    ["Text", "#e9eef6"], ["Muted", "#9aa6b8"], ["Dim", "#6b7686"],
+    ["Accent", "#45d2ff"], ["Accent 2", "#1f9ad6"], ["On accent", "#04121b"],
+    ["Danger", "#ff6b6b"], ["Gold highlight", "#e0a800"], ["Line glow", "#60aae0"]
+  ],
   "Red": [
     ["Pure red", "#FF0000"], ["Crimson", "#DC143C"], ["Firebrick", "#B22222"],
     ["Dark red", "#8B0000"], ["Indian red", "#CD5C5C"], ["Light coral", "#F08080"],
@@ -289,7 +295,7 @@ updateReadout("Lambda accent", lastHex);
 
 <div class="lambda-tip">
 <div class="lambda-tip-label">Lambda tip</div>
-<p>Ten families cover most UI work. When you are building a theme, pick one neutral, one accent (often blue or teal in this archive), and one warning color (amber or orange). Everything else is variation.</p>
+<p>Ten families cover most UI work, plus <strong>Lambda</strong> for this site's locked theme. When you are building a theme, pick one neutral, one accent (often blue or teal in this archive), and one warning color (amber or orange). Everything else is variation.</p>
 </div>
 
 ## RGB and RGBA

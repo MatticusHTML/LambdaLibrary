@@ -16,7 +16,7 @@
     "THE FINALS Brand Guide, Typography page (operator screenshot, 2026-06-16)"
   ],
   "added": "2026-06-16 10:28 PT",
-  "updated": "2026-06-16 14:30 PT",
+  "updated": "2026-06-16 15:20 PT",
   "verdict": "Base game included. DLC drops when you find a palette worth remembering. The Finals went first."
 }
 ```
@@ -31,7 +31,7 @@ For hex, RGB, and HSL theory, see [css-colors](#/e/css-colors).
 
 | Pack | Colors | Source |
 |------|--------|--------|
-| Base | 300+ | CSS named, HSL grid, Archive, Neon |
+| Base | 300+ | CSS named, HSL grid, Lambda theme, Neon |
 | The Finals | 4 colors + Saira typography | Brand guide colors and typography pages |
 | ARC Raiders | 6 colors | Logo palette strip (operator screenshot) |
 

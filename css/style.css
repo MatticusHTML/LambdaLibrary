@@ -301,9 +301,10 @@ a{ color: var(--accent); text-decoration: none; }
 .boot-error{ font-family:var(--mono); font-size:13px; color:var(--danger); padding:20px; border:1px solid var(--danger); border-radius:var(--r-md); }
 
 /* ---------- tool view (full-page utilities) ---------- */
+.view[hidden]{ display:none !important; }
 body.tool-active .shell{ max-width:none; padding:0; }
 body.tool-active .footer{ display:none; }
-.tool-view{
+.tool-view:not([hidden]){
   display:flex; flex-direction:column;
   min-height:calc(100vh - 53px);
   min-height:calc(100dvh - 53px);
