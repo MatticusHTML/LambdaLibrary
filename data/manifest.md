@@ -11,6 +11,7 @@ prepends the slug here. She never removes one.
   "archive": "Lambda // Index",
   "tagline": "A growing reference archive. Filed by Lambda.",
   "entries": [
+    "how-to-implement-a-chatbot",
     "color-library",
     "css-colors",
     "obsidian",
