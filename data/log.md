@@ -10,6 +10,25 @@ resumes with context instead of waking up fresh.
 {
   "sessions": [
     {
+      "date": "2026-06-19 20:00 PT",
+      "title": "SillyTavern manual and R2 music hosting",
+      "summary": "Good morning session. Operator supplied two source docs; Lambda filed both as archive entries with previews, demos, and lambda tips. Eleven index entries on file.",
+      "did": [
+        "Good morning recap from log and library-state",
+        "Filed sillytavern-field-manual from operator HTML field manual: Structure, World Info, cards, presets, keyword demo",
+        "Filed cloudflare-r2-music-hosting from operator markdown guide: bucket setup, public access, custom domain, playlist demo",
+        "Updated manifest and library-state twice; Web Development now seven, Structure two"
+      ],
+      "next": [
+        "Publish in GitHub Desktop so home PC has log, sillytavern entry, and R2 entry",
+        "Confirm GitHub Pages serves new preview/demo blocks (SillyTavern keyword demo, R2 playlist demo)",
+        "Publish backlog if not yet live: chatbot entry, Color Library, DLC packs, css-colors, obsidian demo",
+        "Optional header images for chartjs and react entries",
+        "Run first audit (mode 5)",
+        "RPS pump TDH lookup tool with Chart.js (discussed with RPS_PUMP_DATA_FULL.md)"
+      ]
+    },
+    {
       "date": "2026-06-18 19:00 PT",
       "title": "VANTAGE chatbot implementation filed",
       "summary": "Operator wanted the VANTAGE live chat build preserved before forgetting the steps. Filed as a static-site chatbot pattern entry with portraits, preview shell, and redacted secrets.",
