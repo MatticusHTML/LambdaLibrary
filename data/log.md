@@ -10,6 +10,26 @@ resumes with context instead of waking up fresh.
 {
   "sessions": [
     {
+      "date": "2026-06-18 19:00 PT",
+      "title": "VANTAGE chatbot implementation filed",
+      "summary": "Operator wanted the VANTAGE live chat build preserved before forgetting the steps. Filed as a static-site chatbot pattern entry with portraits, preview shell, and redacted secrets.",
+      "did": [
+        "Activated; operator chose mode 1 from VANTAGE_LIVE_CHAT_IMPLEMENTATION.md",
+        "Filed how-to-implement-a-chatbot: Worker proxy, JSON context, UI states, security, rollout, bug fixes",
+        "Copied five VANTAGE chat portraits to assets/entries; linked live VANTAGE site as reference",
+        "Redacted Worker subdomain, API keys, and squad Discord names from the filed copy",
+        "Updated manifest and library-state; nine index entries on file"
+      ],
+      "next": [
+        "Publish in GitHub Desktop so home PC has log, chatbot entry, and portrait assets",
+        "Confirm GitHub Pages serves chatbot preview/demo blocks and assets/entries portraits",
+        "Publish backlog if not yet live: Color Library tool, DLC packs, css-colors, obsidian demo",
+        "Optional header images for chartjs and react entries",
+        "Run first audit (mode 5)",
+        "RPS pump TDH lookup tool with Chart.js (discussed with RPS_PUMP_DATA_FULL.md)"
+      ]
+    },
+    {
       "date": "2026-06-16 18:45 PT",
       "title": "Color Library, css-colors, and two DLC packs",
       "summary": "Filed css-colors theory entry and built out the Color Library tool with pack tabs. Fixed DLC switching bugs, added The Finals and ARC Raiders palettes, and locked header height with a Base pack icon.",

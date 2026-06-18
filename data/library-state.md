@@ -47,7 +47,8 @@ Topics that came up in conversation and are worth filing later. Lambda adds to
 this list when something is named but not yet researched, and removes a line
 once it becomes a real entry.
 
-- Publish in GitHub Desktop; confirm GitHub Pages serves demo blocks, obsidian JSON Canvas demo, and Color Library tool with DLC packs and icons
+- Publish in GitHub Desktop; confirm GitHub Pages serves chatbot entry preview/demo blocks and assets/entries portraits
+- Publish backlog if not yet live: Color Library tool, DLC packs, css-colors, obsidian JSON Canvas demo
 - RPS pump TDH lookup tool with Chart.js (horizontal TDH line, multi-model curves; discussed with RPS_PUMP_DATA_FULL.md)
 - Optional header images for chartjs and react entries
 - Run first audit (mode 5)
