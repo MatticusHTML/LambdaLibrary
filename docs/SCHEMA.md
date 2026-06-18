@@ -136,6 +136,33 @@ One json block. The engine reads only that block.
 
 ---
 
+## Music manifest: `data/music-manifest.md`
+
+Same shape as the index manifest. The engine reads only the json block.
+
+```json
+{
+  "library": "Lambda // Music Library",
+  "tagline": "Artist reports. Cool finds on file.",
+  "entries": ["newest-slug"]
+}
+```
+
+- `entries` is display order, newest first. Prepend on file. Never remove.
+- Every slug must have a matching file at `data/music/<slug>.md`.
+
+### Music entry file: `data/music/<slug>.md`
+
+Same markdown + json block pattern as index entries, with these differences:
+
+- No `library`, `intro`, `tool`, or `toolSrc` unless the report is about a package.
+- Optional `artist` string (composer or band name) shown on the card and reader meta.
+- Optional `links` object for official artist URLs. Supported keys: `bandcamp`, `youtube`, `sourceaudio`. The engine renders them as prominent buttons above the body.
+
+Routes: `#/music` (grid), `#/music/e/<slug>` (reader). The header music toggle switches between Index and Music Library.
+
+---
+
 ## Library state: `data/library-state.md`
 
 Lambda's memory. Human and agent read it. The website does not. No fixed schema,

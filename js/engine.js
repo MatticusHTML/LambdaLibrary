@@ -7,7 +7,15 @@
    opened with file://.
    ============================================================ */
 
-const STATE = { entries: [], byId: {}, category: "All", query: "" };
+const STATE = {
+  mode: "index",
+  entries: [],
+  byId: {},
+  musicEntries: [],
+  musicById: {},
+  category: "All",
+  query: ""
+};
 
 const $ = (sel) => document.querySelector(sel);
 
@@ -19,10 +27,19 @@ async function boot(){
     const loaded = await Promise.all(slugs.map(loadEntry));
     STATE.entries = loaded.filter(Boolean);
     STATE.entries.forEach((e) => { STATE.byId[e.id] = e; });
+
+    const musicManifest = parseJsonBlock(await fetchText("data/music-manifest.md"));
+    const musicSlugs = Array.isArray(musicManifest.entries) ? musicManifest.entries : [];
+    const musicLoaded = await Promise.all(musicSlugs.map(loadMusicEntry));
+    STATE.musicEntries = musicLoaded.filter(Boolean);
+    STATE.musicEntries.forEach((e) => { STATE.musicById[e.id] = e; });
+
     STATE.log = await loadLog();
-    $("#entry-count").textContent = STATE.entries.length + (STATE.entries.length === 1 ? " entry" : " entries");
+    updateCount();
     runGreeting();
     renderChips();
+    wireSearch();
+    wireMusicToggle();
     route();
     window.addEventListener("hashchange", route);
   }catch(err){
@@ -60,6 +77,23 @@ async function loadEntry(slug){
   }
 }
 
+async function loadMusicEntry(slug){
+  try{
+    const raw = await fetchText("data/music/" + slug + ".md");
+    const meta = parseJsonBlock(raw);
+    const after = raw.slice(raw.indexOf("```", raw.indexOf("```json") + 7) + 3);
+    meta.body = after.trim();
+    meta.id = meta.id || slug;
+    meta.tags = meta.tags || [];
+    meta.sources = meta.sources || [];
+    meta.links = meta.links || {};
+    return meta;
+  }catch(err){
+    console.warn("Skipped music entry " + slug + ": " + err.message);
+    return null;
+  }
+}
+
 async function loadLog(){
   try{
     const data = parseJsonBlock(await fetchText("data/log.md"));
@@ -70,10 +104,78 @@ async function loadLog(){
   }
 }
 
+function activeList(){
+  return STATE.mode === "music" ? STATE.musicEntries : STATE.entries;
+}
+
+function updateCount(){
+  const n = activeList().length;
+  $("#entry-count").textContent = n + (n === 1 ? " report" : " reports");
+  if(STATE.mode === "index"){
+    $("#entry-count").textContent = STATE.entries.length + (STATE.entries.length === 1 ? " entry" : " entries");
+  }
+}
+
+function setMode(mode){
+  const prev = STATE.mode;
+  STATE.mode = mode === "music" ? "music" : "index";
+  if(prev !== STATE.mode){
+    STATE.category = "All";
+    STATE.query = "";
+    const search = $("#search");
+    if(search) search.value = "";
+  }
+  const search = $("#search");
+  document.body.classList.toggle("music-mode", STATE.mode === "music");
+  const libName = $("#library-name");
+  if(libName) libName.textContent = STATE.mode === "music" ? "Music Library" : "Index";
+  const brand = $(".brand");
+  if(brand){
+    brand.setAttribute("href", STATE.mode === "music" ? "#/music" : "#/");
+    brand.setAttribute("aria-label", STATE.mode === "music" ? "Lambda Music Library home" : "Lambda Index home");
+  }
+  const footerLabel = $("#footer-library-name");
+  if(footerLabel) footerLabel.textContent = STATE.mode === "music" ? "Music Library" : "Index";
+  document.title = STATE.mode === "music" ? "Lambda // Music Library" : "Lambda // Index";
+  const toggle = $("#music-toggle");
+  if(toggle){
+    toggle.classList.toggle("on", STATE.mode === "music");
+    toggle.setAttribute("aria-pressed", STATE.mode === "music" ? "true" : "false");
+    toggle.setAttribute("aria-label", STATE.mode === "music" ? "Switch to Index" : "Switch to Music Library");
+  }
+  if(search){
+    search.placeholder = STATE.mode === "music" ? "Search artist reports" : "Search the archive";
+    search.setAttribute("aria-label", search.placeholder);
+  }
+  updateCount();
+  if(prev !== STATE.mode) runGreeting();
+  renderChips();
+}
+
+function wireMusicToggle(){
+  const btn = $("#music-toggle");
+  if(!btn) return;
+  btn.onclick = () => {
+    if(STATE.mode === "music") location.hash = "#/";
+    else location.hash = "#/music";
+  };
+}
+
+function wireSearch(){
+  const search = $("#search");
+  if(!search) return;
+  search.addEventListener("input", () => {
+    STATE.query = search.value.trim().toLowerCase();
+    renderGrid();
+  });
+}
+
 /* ---------- greeting (typed, once) ---------- */
 function runGreeting(){
   const el = $("#greeting");
-  const line = "Lambda. " + STATE.entries.length + " entries on file. What do you need?";
+  const line = STATE.mode === "music"
+    ? "Music Library. " + STATE.musicEntries.length + " artist" + (STATE.musicEntries.length === 1 ? "" : "s") + " on file. Reports only, no uploads."
+    : "Lambda. " + STATE.entries.length + " entries on file. What do you need?";
   if(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches){
     el.textContent = line; return;
   }
@@ -93,7 +195,7 @@ function runGreeting(){
 /* ---------- categories ---------- */
 function categories(){
   const counts = {};
-  STATE.entries.forEach((e) => { counts[e.category] = (counts[e.category] || 0) + 1; });
+  activeList().forEach((e) => { counts[e.category] = (counts[e.category] || 0) + 1; });
   return Object.keys(counts).sort().map((c) => ({ name: c, n: counts[c] }));
 }
 
@@ -102,7 +204,7 @@ function renderChips(){
   wrap.innerHTML = "";
   const all = document.createElement("button");
   all.className = "chip" + (STATE.category === "All" ? " on" : "");
-  all.innerHTML = "All <span class='n'>" + STATE.entries.length + "</span>";
+  all.innerHTML = "All <span class='n'>" + activeList().length + "</span>";
   all.onclick = () => { STATE.category = "All"; renderChips(); renderGrid(); };
   wrap.appendChild(all);
   categories().forEach((c) => {
@@ -118,9 +220,10 @@ function renderChips(){
 function renderGrid(){
   const grid = $("#grid");
   const q = STATE.query;
-  const list = STATE.entries.filter((e) => {
+  const list = activeList().filter((e) => {
     const inCat = STATE.category === "All" || e.category === STATE.category;
-    const hay = (e.title + " " + e.summary + " " + e.category + " " + e.tags.join(" ")).toLowerCase();
+    const artist = e.artist || "";
+    const hay = (e.title + " " + e.summary + " " + e.category + " " + artist + " " + e.tags.join(" ")).toLowerCase();
     return inCat && (q === "" || hay.includes(q));
   });
   grid.innerHTML = "";
@@ -128,17 +231,19 @@ function renderGrid(){
     grid.innerHTML = "<div class='empty'>Nothing matches. The archive does not pretend otherwise.</div>";
     return;
   }
+  const prefix = STATE.mode === "music" ? "#/music/e/" : "#/e/";
   list.forEach((e) => {
     const card = document.createElement("button");
     card.className = "card";
     card.innerHTML =
       "<div class='card-meta'><span class='cat'>" + esc(e.category) + "</span>" +
         (e.tool ? "<span class='card-tool'>Tool</span>" : "") +
+        (STATE.mode === "music" && e.artist ? "<span class='card-artist'>" + esc(e.artist) + "</span>" : "") +
         "<span>" + esc(dateOnly(e.added)) + "</span></div>" +
       "<div class='card-title'>" + esc(e.title) + "</div>" +
       "<div class='card-summary'>" + esc(e.summary) + "</div>" +
       (e.verdict ? "<div class='card-verdict'>" + esc(e.verdict) + "</div>" : "");
-    card.onclick = () => { location.hash = "#/e/" + e.id; };
+    card.onclick = () => { location.hash = prefix + e.id; };
     grid.appendChild(card);
   });
 }
@@ -153,15 +258,26 @@ function setView(visibleId){
 
 function route(){
   const hash = location.hash || "#/";
-  if(hash === "#/log"){ return showLog(); }
+  if(hash === "#/log"){ setMode("index"); return showLog(); }
+  if(hash === "#/music" || hash === "#/music/"){
+    setMode("music");
+    return showIndex();
+  }
+  const mm = hash.match(/^#\/music\/e\/(.+)$/);
+  if(mm && STATE.musicById[mm[1]]){
+    setMode("music");
+    return showMusicReader(STATE.musicById[mm[1]]);
+  }
   const m = hash.match(/^#\/e\/(.+)$/);
   if(m && STATE.byId[m[1]]){
+    setMode("index");
     const entry = STATE.byId[m[1]];
     if(entry.tool && entry.toolSrc){ showTool(entry); }
     else { showReader(entry); }
-  }else{
-    showIndex();
+    return;
   }
+  setMode("index");
+  showIndex();
 }
 
 function showIndex(){
@@ -234,6 +350,38 @@ function showReader(e){
     "</div>";
   view.querySelector(".reader-back").onclick = () => { location.hash = "#/"; };
   window.scrollTo(0, 0);
+}
+
+function showMusicReader(e){
+  setView("reader-view");
+  const view = $("#reader-view");
+  view.innerHTML =
+    "<button class='reader-back'>&larr; Back to Music Library</button>" +
+    (e.header ? "<div class='reader-hero'><img src='" + esc(e.header) + "' alt='' /></div>" : "") +
+    "<div class='reader-meta'><span class='cat'>" + esc(e.category) + "</span>" +
+      (e.artist ? " &middot; " + esc(e.artist) : "") +
+      " &middot; filed " + esc(e.added || "") +
+      (e.updated && e.updated !== e.added ? " &middot; updated " + esc(e.updated) : "") + "</div>" +
+    "<h1 class='reader-title'>" + esc(e.title) + "</h1>" +
+    musicLinksHtml(e.links) +
+    (e.tags.length ? "<div class='reader-tags'>" + e.tags.map((t) => "<span class='tag'>" + esc(t) + "</span>").join("") + "</div>" : "") +
+    "<div class='doc'>" + renderBody(e.body) + "</div>" +
+    "<div class='reader-foot'>" +
+      (e.sources.length ? "<div class='sources'><h4>Sources</h4><ul>" + e.sources.map((s) => "<li>" + linkify(s) + "</li>").join("") + "</ul></div>" : "") +
+      (e.verdict ? "<div class='verdict-block'><div class='label'>Lambda's verdict</div><div class='verdict'>" + esc(e.verdict) + "</div></div>" : "") +
+    "</div>";
+  view.querySelector(".reader-back").onclick = () => { location.hash = "#/music"; };
+  window.scrollTo(0, 0);
+}
+
+function musicLinksHtml(links){
+  if(!links || typeof links !== "object") return "";
+  const labels = { bandcamp: "Bandcamp", youtube: "YouTube", sourceaudio: "SourceAudio" };
+  const parts = [];
+  Object.keys(labels).forEach((k) => {
+    if(links[k]) parts.push("<a class='artist-link' href='" + esc(links[k]) + "' target='_blank' rel='noopener'>" + labels[k] + "</a>");
+  });
+  return parts.length ? "<div class='artist-links'>" + parts.join("") + "</div>" : "";
 }
 
 /* ---------- markdown + live previews + demos ---------- */

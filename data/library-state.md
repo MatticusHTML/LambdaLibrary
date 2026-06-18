@@ -15,7 +15,8 @@ This file is for the agent and the operator. The website does not read it.
 ## Snapshot
 
 - Entries on file: 8
-- Last filed: 2026-06-16 18:45 PT (color-library tool, ARC Raiders DLC, Base icon)
+- Music reports on file: 1
+- Last filed: 2026-06-16 10:15 PT (the-secession, Music Library)
 - Last audit: not yet run
 
 ## Categories in use
@@ -35,7 +36,7 @@ categories. They appear when the first entry lands in one.
 
 ## Tag vocabulary
 
-`html`, `css`, `javascript`, `fundamentals`, `first-entry`, `color`, `hex`, `palette`, `design`, `ui`, `tool`, `dlc`, `psychart`, `pumpchart`, `psychrometric`, `graphs`, `npm`, `hvac`, `engineering`, `chartjs`, `charts`, `canvas`, `data-visualization`, `react`, `components`, `jsx`, `ui`, `frontend`, `python`, `backend`, `django`, `flask`, `programming`, `web-apps`, `obsidian`, `electron`, `markdown`, `plugins`, `typescript`, `cursor`, `knowledge-management`
+`html`, `css`, `javascript`, `fundamentals`, `first-entry`, `color`, `hex`, `palette`, `design`, `ui`, `tool`, `dlc`, `orchestral`, `trailer-music`, `soundtrack`, `dark-fantasy`, `composer`, `cinematic`, `psychart`, `pumpchart`, `psychrometric`, `graphs`, `npm`, `hvac`, `engineering`, `chartjs`, `charts`, `canvas`, `data-visualization`, `react`, `components`, `jsx`, `ui`, `frontend`, `python`, `backend`, `django`, `flask`, `programming`, `web-apps`, `obsidian`, `electron`, `markdown`, `plugins`, `typescript`, `cursor`, `knowledge-management`
 
 Lambda prefers reusing an existing tag over coining a near-synonym. New tags are
 fine when the concept is genuinely new. She does not coin a tag she will use once.
@@ -102,3 +103,7 @@ relitigated every session.
   PNG usual). File at `assets/dlc/<pack-id>-icon.png`. DLC packs reference it in
   `data/color-dlc.json`; Base pack references it in `tools/color-library.html`
   (`BASE_PACK.icon`).
+- 2026-06-16: **Music Library** is a second archive mode toggled from the header
+  node button (`assets/lambda-music-node.png`). Manifest at `data/music-manifest.md`,
+  reports at `data/music/<slug>.md`. Routes `#/music` and `#/music/e/<slug>`.
+  Reports link out (Bandcamp, YouTube, SourceAudio); no audio uploads in archive.
