@@ -14,9 +14,9 @@ This file is for the agent and the operator. The website does not read it.
 
 ## Snapshot
 
-- Entries on file: 9
+- Entries on file: 10
 - Music reports on file: 1
-- Last filed: 2026-06-18 14:00 PT (how-to-implement-a-chatbot, Web Development)
+- Last filed: 2026-06-19 09:30 PT (sillytavern-field-manual, Structure)
 - Last audit: not yet run
 
 ## Categories in use
@@ -24,7 +24,7 @@ This file is for the agent and the operator. The website does not read it.
 | Category | Count |
 |----------------|-------|
 | Graphs | 2 |
-| Structure | 1 |
+| Structure | 2 |
 | Web Development | 6 |
 
 When a new entry's category is not on this list, Lambda flags it before filing
@@ -36,7 +36,7 @@ categories. They appear when the first entry lands in one.
 
 ## Tag vocabulary
 
-`html`, `css`, `javascript`, `fundamentals`, `first-entry`, `color`, `hex`, `palette`, `design`, `ui`, `tool`, `dlc`, `orchestral`, `trailer-music`, `soundtrack`, `dark-fantasy`, `composer`, `cinematic`, `psychart`, `pumpchart`, `psychrometric`, `graphs`, `npm`, `hvac`, `engineering`, `chartjs`, `charts`, `canvas`, `data-visualization`, `react`, `components`, `jsx`, `ui`, `frontend`, `python`, `backend`, `django`, `flask`, `programming`, `web-apps`, `obsidian`, `electron`, `markdown`, `plugins`, `typescript`, `cursor`, `knowledge-management`, `api`, `cloudflare`, `openrouter`, `chatbot`, `static-site`
+`html`, `css`, `javascript`, `fundamentals`, `first-entry`, `color`, `hex`, `palette`, `design`, `ui`, `tool`, `dlc`, `orchestral`, `trailer-music`, `soundtrack`, `dark-fantasy`, `composer`, `cinematic`, `psychart`, `pumpchart`, `psychrometric`, `graphs`, `npm`, `hvac`, `engineering`, `chartjs`, `charts`, `canvas`, `data-visualization`, `react`, `components`, `jsx`, `ui`, `frontend`, `python`, `backend`, `django`, `flask`, `programming`, `web-apps`, `obsidian`, `electron`, `markdown`, `plugins`, `typescript`, `cursor`, `knowledge-management`, `api`, `cloudflare`, `openrouter`, `chatbot`, `static-site`, `sillytavern`, `world-info`, `lorebooks`, `ai`, `roleplay`, `character-cards`, `prompts`
 
 Lambda prefers reusing an existing tag over coining a near-synonym. New tags are
 fine when the concept is genuinely new. She does not coin a tag she will use once.
@@ -104,6 +104,10 @@ relitigated every session.
   PNG usual). File at `assets/dlc/<pack-id>-icon.png`. DLC packs reference it in
   `data/color-dlc.json`; Base pack references it in `tools/color-library.html`
   (`BASE_PACK.icon`).
+- 2026-06-19: **sillytavern-field-manual** filed under Structure (world/lore
+  orchestration alongside Obsidian). Source was operator HTML field manual;
+  Larion campaign kept as illustrative build-order example. Library link points
+  to docs.sillytavern.app.
 - 2026-06-18: **Implementation entries** (e.g. `how-to-implement-a-chatbot`) document
   a real project pattern without `library`/`intro` meta. Use `preview` for UI shell,
   `demo` for client-side behavior that does not need secrets. Redact API keys,
