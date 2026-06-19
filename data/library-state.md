@@ -14,9 +14,9 @@ This file is for the agent and the operator. The website does not read it.
 
 ## Snapshot
 
-- Entries on file: 11
+- Entries on file: 13
 - Music reports on file: 1
-- Last filed: 2026-06-19 11:15 PT (cloudflare-r2-music-hosting, Web Development)
+- Last filed: 2026-06-20 11:45 PT (ai-environment-2015-2025, Research)
 - Last audit: not yet run
 
 ## Categories in use
@@ -26,6 +26,8 @@ This file is for the agent and the operator. The website does not read it.
 | Graphs | 2 |
 | Structure | 2 |
 | Web Development | 7 |
+| Audio | 1 |
+| Research | 1 |
 
 When a new entry's category is not on this list, Lambda flags it before filing
 and asks whether to open a new category or fold it into an existing one. This
@@ -36,7 +38,7 @@ categories. They appear when the first entry lands in one.
 
 ## Tag vocabulary
 
-`html`, `css`, `javascript`, `fundamentals`, `first-entry`, `color`, `hex`, `palette`, `design`, `ui`, `tool`, `dlc`, `orchestral`, `trailer-music`, `soundtrack`, `dark-fantasy`, `composer`, `cinematic`, `psychart`, `pumpchart`, `psychrometric`, `graphs`, `npm`, `hvac`, `engineering`, `chartjs`, `charts`, `canvas`, `data-visualization`, `react`, `components`, `jsx`, `ui`, `frontend`, `python`, `backend`, `django`, `flask`, `programming`, `web-apps`, `obsidian`, `electron`, `markdown`, `plugins`, `typescript`, `cursor`, `knowledge-management`, `api`, `cloudflare`, `openrouter`, `chatbot`, `static-site`, `sillytavern`, `world-info`, `lorebooks`, `ai`, `roleplay`, `character-cards`, `prompts`, `r2`, `hosting`, `audio`, `music`, `github-pages`, `media`
+`html`, `css`, `javascript`, `fundamentals`, `first-entry`, `color`, `hex`, `palette`, `design`, `ui`, `tool`, `dlc`, `orchestral`, `trailer-music`, `soundtrack`, `dark-fantasy`, `composer`, `cinematic`, `psychart`, `pumpchart`, `psychrometric`, `graphs`, `npm`, `hvac`, `engineering`, `chartjs`, `charts`, `canvas`, `data-visualization`, `react`, `components`, `jsx`, `ui`, `frontend`, `python`, `backend`, `django`, `flask`, `programming`, `web-apps`, `obsidian`, `electron`, `markdown`, `plugins`, `typescript`, `cursor`, `knowledge-management`, `api`, `cloudflare`, `openrouter`, `chatbot`, `static-site`, `sillytavern`, `world-info`, `lorebooks`, `ai`, `roleplay`, `character-cards`, `prompts`, `r2`, `hosting`, `audio`, `music`, `github-pages`, `media`, `mpeg`, `mp3`, `mp2`, `mp1`, `mp4`, `aac`, `codecs`, `psychoacoustics`, `compression`, `history`, `climate`, `environment`, `data-centers`, `emissions`, `energy`, `research`, `sustainability`, `carbon`
 
 Lambda prefers reusing an existing tag over coining a near-synonym. New tags are
 fine when the concept is genuinely new. She does not coin a tag she will use once.
@@ -47,8 +49,8 @@ Topics that came up in conversation and are worth filing later. Lambda adds to
 this list when something is named but not yet researched, and removes a line
 once it becomes a real entry.
 
-- Publish in GitHub Desktop; confirm GitHub Pages serves sillytavern and cloudflare-r2 preview/demo blocks
-- Publish backlog if not yet live: chatbot entry, Color Library tool, DLC packs, css-colors, obsidian JSON Canvas demo
+- Publish in GitHub Desktop; confirm GitHub Pages serves mpeg-audio-lineage and ai-environment Chart.js demo
+- Publish backlog if not yet live: sillytavern, R2, chatbot, Color Library tool, DLC packs, css-colors, obsidian JSON Canvas demo
 - RPS pump TDH lookup tool with Chart.js (horizontal TDH line, multi-model curves; discussed with RPS_PUMP_DATA_FULL.md)
 - Optional header images for chartjs and react entries
 - Run first audit (mode 5)
@@ -104,6 +106,13 @@ relitigated every session.
   PNG usual). File at `assets/dlc/<pack-id>-icon.png`. DLC packs reference it in
   `data/color-dlc.json`; Base pack references it in `tools/color-library.html`
   (`BASE_PACK.icon`).
+- 2026-06-20: **Research** category opened with `ai-environment-2015-2025` (operator
+  deep research report). Stripped broken cite markers from source; preserved
+  uncertainty language. Chart.js demo replaces Mermaid charts. No `library`/`intro`
+  meta (research report, not a package).
+- 2026-06-20: **Audio** category opened with `mpeg-audio-lineage` (codec history,
+  psychoacoustics, MP1–MP4, culture). Operator expanded report June 2026.
+  Cross-link to cloudflare-r2-music-hosting. Preview size table, PCM calculator demo.
 - 2026-06-19: **cloudflare-r2-music-hosting** from operator markdown guide.
   Web Development; `library` + `intro` for R2 docs. Added architecture diagram,
   CORS note, cross-link to chatbot Worker entry, preview audio embed, playlist demo.

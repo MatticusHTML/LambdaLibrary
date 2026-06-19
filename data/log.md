@@ -10,6 +10,25 @@ resumes with context instead of waking up fresh.
 {
   "sessions": [
     {
+      "date": "2026-06-20 20:00 PT",
+      "title": "MPEG lineage and AI environment research",
+      "summary": "Good morning session. Operator filed two source reports: expanded MPEG audio history and a deep research report on AI electricity and emissions 2015–2025. Opened Audio and Research categories. Thirteen index entries on file.",
+      "did": [
+        "Good morning recap from log and library-state",
+        "Filed mpeg-audio-lineage from MPEG Audio Report Expanded.md: MP1–MP4, psychoacoustics, culture, PCM calculator demo; opened Audio category",
+        "Filed ai-environment-2015-2025 from deep-research-report.md: estimates, methodology, company disclosures; stripped cite markers; Chart.js trend demo; opened Research category",
+        "Updated manifest and library-state twice"
+      ],
+      "next": [
+        "Publish in GitHub Desktop so home PC has log, mpeg-audio-lineage, and ai-environment entries",
+        "Confirm GitHub Pages serves new preview/demo blocks (PCM calculator, Chart.js AI trends)",
+        "Publish backlog if not yet live: sillytavern, R2, chatbot, Color Library, DLC packs, css-colors, obsidian demo",
+        "Optional header images for chartjs and react entries",
+        "Run first audit (mode 5)",
+        "RPS pump TDH lookup tool with Chart.js (discussed with RPS_PUMP_DATA_FULL.md)"
+      ]
+    },
+    {
       "date": "2026-06-19 20:00 PT",
       "title": "SillyTavern manual and R2 music hosting",
       "summary": "Good morning session. Operator supplied two source docs; Lambda filed both as archive entries with previews, demos, and lambda tips. Eleven index entries on file.",
