@@ -14,9 +14,9 @@ This file is for the agent and the operator. The website does not read it.
 
 ## Snapshot
 
-- Entries on file: 13
+- Entries on file: 16
 - Music reports on file: 1
-- Last filed: 2026-06-20 11:45 PT (ai-environment-2015-2025, Research)
+- Last filed: 2026-07-01 17:30 PT (web-icon-requirements, Research)
 - Last audit: not yet run
 
 ## Categories in use
@@ -27,7 +27,7 @@ This file is for the agent and the operator. The website does not read it.
 | Structure | 2 |
 | Web Development | 7 |
 | Audio | 1 |
-| Research | 1 |
+| Research | 4 |
 
 When a new entry's category is not on this list, Lambda flags it before filing
 and asks whether to open a new category or fold it into an existing one. This
@@ -38,7 +38,7 @@ categories. They appear when the first entry lands in one.
 
 ## Tag vocabulary
 
-`html`, `css`, `javascript`, `fundamentals`, `first-entry`, `color`, `hex`, `palette`, `design`, `ui`, `tool`, `dlc`, `orchestral`, `trailer-music`, `soundtrack`, `dark-fantasy`, `composer`, `cinematic`, `psychart`, `pumpchart`, `psychrometric`, `graphs`, `npm`, `hvac`, `engineering`, `chartjs`, `charts`, `canvas`, `data-visualization`, `react`, `components`, `jsx`, `ui`, `frontend`, `python`, `backend`, `django`, `flask`, `programming`, `web-apps`, `obsidian`, `electron`, `markdown`, `plugins`, `typescript`, `cursor`, `knowledge-management`, `api`, `cloudflare`, `openrouter`, `chatbot`, `static-site`, `sillytavern`, `world-info`, `lorebooks`, `ai`, `roleplay`, `character-cards`, `prompts`, `r2`, `hosting`, `audio`, `music`, `github-pages`, `media`, `mpeg`, `mp3`, `mp2`, `mp1`, `mp4`, `aac`, `codecs`, `psychoacoustics`, `compression`, `history`, `climate`, `environment`, `data-centers`, `emissions`, `energy`, `research`, `sustainability`, `carbon`
+`html`, `css`, `javascript`, `fundamentals`, `first-entry`, `color`, `hex`, `palette`, `design`, `ui`, `tool`, `dlc`, `orchestral`, `trailer-music`, `soundtrack`, `dark-fantasy`, `composer`, `cinematic`, `psychart`, `pumpchart`, `psychrometric`, `graphs`, `npm`, `hvac`, `engineering`, `chartjs`, `charts`, `canvas`, `data-visualization`, `react`, `components`, `jsx`, `ui`, `frontend`, `python`, `backend`, `django`, `flask`, `programming`, `web-apps`, `obsidian`, `electron`, `markdown`, `plugins`, `typescript`, `cursor`, `knowledge-management`, `api`, `cloudflare`, `openrouter`, `chatbot`, `static-site`, `sillytavern`, `world-info`, `lorebooks`, `ai`, `roleplay`, `character-cards`, `prompts`, `r2`, `hosting`, `audio`, `music`, `github-pages`, `media`, `mpeg`, `mp3`, `mp2`, `mp1`, `mp4`, `aac`, `codecs`, `psychoacoustics`, `compression`, `history`, `climate`, `environment`, `data-centers`, `emissions`, `energy`, `research`, `sustainability`, `carbon`, `usb`, `usb-c`, `connectors`, `hardware`, `standards`, `thunderbolt`, `power-delivery`, `connectivity`, `filesystems`, `fat32`, `exfat`, `ntfs`, `storage`, `formatting`, `compatibility`, `icons`, `favicon`, `pwa`, `ios`, `android`, `manifest`
 
 Lambda prefers reusing an existing tag over coining a near-synonym. New tags are
 fine when the concept is genuinely new. She does not coin a tag she will use once.
@@ -110,6 +110,17 @@ relitigated every session.
   deep research report). Stripped broken cite markers from source; preserved
   uncertainty language. Chart.js demo replaces Mermaid charts. No `library`/`intro`
   meta (research report, not a package).
+- 2026-07-01: **web-icon-requirements** filed; full Lambda icon set deployed
+  (`favicon.ico`, PNG sizes 16–512, apple-touch 180, maskable 512,
+  `site.webmanifest`, og:image). Generator: `scripts/generate-icons.py`.
+  Wired into `index.html` and `tools/color-library.html`.
+- 2026-07-01: **usb-filesystem-formats** filed (FAT12 through APFS/ext4,
+  limits, OS/device compatibility matrices, SD rules, console quirks, decision
+  guide). Cross-links usb-lineage. Two preview blocks. Research category.
+- 2026-07-01: **Research** second entry `usb-lineage` (USB standards history,
+  connectors, speeds, naming chaos, USB-C lore, PD, EU mandate, enthusiast
+  preferences). Two `preview` blocks (spec table, connector silhouettes). No
+  `library`/`intro` (research report, not a package).
 - 2026-06-20: **Audio** category opened with `mpeg-audio-lineage` (codec history,
   psychoacoustics, MP1–MP4, culture). Operator expanded report June 2026.
   Cross-link to cloudflare-r2-music-hosting. Preview size table, PCM calculator demo.

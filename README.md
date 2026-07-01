@@ -26,7 +26,10 @@ AGENTS.md                Lambda's operating protocol (Cursor reads this)
 docs/
   LAMBDA_PROTOCOL.md     full strict behavior spec
   SCHEMA.md              the data contract for entries and the manifest
-assets/favicon.svg       the prism mark
+assets/favicon.svg       the prism mark (source for all icon sizes)
+assets/icons/            PNG icons + apple-touch-icon (see scripts/generate-icons.py)
+site.webmanifest         PWA manifest for Android install / theme
+favicon.ico              multi-size ICO at site root
 .nojekyll                tells GitHub Pages to serve files as-is
 ```
 
